@@ -24,22 +24,29 @@ public class HyperLinkParser extends URLConnection{
         Elements elements = doc.select("a[href]");
         for (Element element : elements){
             links.add(element.attr("href"));
-            titles.add(element.attr("title"));
-
         }
-        List<String> combined = addAtrr(links,titles);
+        List<String> combined = addAtrr(links);
         return combined;
 
     }
-    private List<String> addAtrr(List<String> links , List<String> titles){
+    private List<String> addAtrr(List<String> links ){
         Iterator sortLinks = links.iterator();
-        Iterator sortNames = titles.iterator();
         List <String> combined= new ArrayList<>();
         while (sortLinks.hasNext()){
-            if (sortNames.hasNext()){
-                combined.add((String) sortNames.next());
+            String link = (String) sortLinks.next();
+            if (link.startsWith("/wiki/")
+                    &&!link.startsWith("/wiki/File")
+                    &&!link.startsWith("/wiki/Special")
+                    &&!link.endsWith("(identifier)")
+                    &&!link.startsWith("/wiki/Category")
+                    &&!link.startsWith("/wiki/Help")
+                    &&!link.startsWith("/wiki/Wikipedia")
+                    &&!link.startsWith("/wiki/Talk")
+                    &&!link.startsWith("/wiki/Portal")){
+                String title= link.replace("/wiki/","");
+                combined.add(title);
+                combined.add(link);
             }
-            combined.add((String) sortLinks.next());
         }
         return combined;
     }

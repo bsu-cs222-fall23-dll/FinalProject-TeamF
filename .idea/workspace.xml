@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Commit 1 Added Jsoup and converted to Maven">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/URLConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/connectionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/hyperLinkTest.java" afterDir="false" />
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/connectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/connectionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,14 +41,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="JUnit.hyperLinkTest">
+    <configuration name="connectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Final_Project_Finley_Brennan_Hunter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bsu.edu.cs222.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.connectionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="hyperLinkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
       <extension name="coverage">
@@ -88,6 +99,7 @@
       <list>
         <item itemvalue="JUnit.hyperLinkTest" />
         <item itemvalue="JUnit.hyperLinkTest.hyperLinkTest" />
+        <item itemvalue="JUnit.connectionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -114,12 +126,20 @@
       <option name="project" value="LOCAL" />
       <updated>1697687134845</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test">
+      <created>1697690638475</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1697690638475</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="cudsijn" />
     <MESSAGE value="Commit 1 Added Jsoup and converted to Maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 1 Added Jsoup and converted to Maven" />
+    <MESSAGE value="Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test" />
   </component>
 </project>
