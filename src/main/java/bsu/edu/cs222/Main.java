@@ -15,7 +15,7 @@ public class Main {
         JPanel primary = new JPanel();
         primary.setPreferredSize(new Dimension(500, 200));
         primary.add(new JScrollPane());
-        JTextArea append = new JTextArea();
+        JTextArea text = new JTextArea();
 
         List<String> testSet= null;
         try {
@@ -25,9 +25,10 @@ public class Main {
         }
         Iterator iterator = testSet.iterator();
         while (iterator.hasNext()){
-            append.append(iterator.next().toString() + "\n");
+            text.append(iterator.next().toString() + "\n");
         }
 
+        JScrollPane append = new JScrollPane(text);
         primary.add(append);
 
         JOptionPane.showMessageDialog(null, primary);
