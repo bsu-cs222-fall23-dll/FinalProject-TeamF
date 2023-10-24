@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Remove duplicate Junit dependencies">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/connectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/connectionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +21,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Hunter Johns &lt;hunter.johns@bsu.edu&gt;" />
+        <option value="Hunter-Johns" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -45,7 +49,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.cs222 in Final_Project_Finley_Brennan_Hunter">
+  <component name="RunManager" selected="JUnit.hyperLinkTest.hyperLinkTest">
     <configuration name="connectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
       <extension name="coverage">
@@ -113,10 +117,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.hyperLinkTest.hyperLinkTest" />
         <item itemvalue="JUnit.cs222 in Final_Project_Finley_Brennan_Hunter" />
         <item itemvalue="JUnit.hyperLinkTest" />
         <item itemvalue="JUnit.connectionTest" />
-        <item itemvalue="JUnit.hyperLinkTest.hyperLinkTest" />
       </list>
     </recent_temporary>
   </component>
@@ -150,13 +154,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697690638475</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Remove duplicate Junit dependencies">
+      <option name="closed" value="true" />
+      <created>1698164744061</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1698164744061</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="cudsijn" />
     <MESSAGE value="Commit 1 Added Jsoup and converted to Maven" />
     <MESSAGE value="Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test" />
+    <MESSAGE value="Remove duplicate Junit dependency" />
+    <MESSAGE value="Remove duplicate Junit dependencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove duplicate Junit dependencies" />
   </component>
 </project>
