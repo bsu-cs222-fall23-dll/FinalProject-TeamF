@@ -176,7 +176,21 @@
       <option name="project" value="LOCAL" />
       <updated>1698164744061</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Commit 4, added initial gui functions">
+      <created>1698169608062</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698169608062</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Commit 4, added initial gui functions">
+      <created>1698169640582</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698169640582</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -185,6 +199,8 @@
     <MESSAGE value="Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test" />
     <MESSAGE value="Remove duplicate Junit dependency" />
     <MESSAGE value="Remove duplicate Junit dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove duplicate Junit dependencies" />
+    <MESSAGE value="Commit 5, worked on altering display of gui" />
+    <MESSAGE value="Commit 4, added initial gui functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit 4, added initial gui functions" />
   </component>
 </project>
