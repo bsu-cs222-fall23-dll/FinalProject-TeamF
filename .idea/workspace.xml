@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Commit 5, altered gui layout, and added buttons">
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Commit 5.5, altered gui layout, and edited buttons">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" afterDir="false" />
     </list>
@@ -197,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698248916801</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Commit 5.5, altered gui layout, and edited buttons">
+      <created>1698254562295</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698254562295</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -209,6 +216,7 @@
     <MESSAGE value="Commit 5, worked on altering display of gui" />
     <MESSAGE value="Commit 4, added initial gui functions" />
     <MESSAGE value="Commit 5, altered gui layout, and added buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 5, altered gui layout, and added buttons" />
+    <MESSAGE value="Commit 5.5, altered gui layout, and edited buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit 5.5, altered gui layout, and edited buttons" />
   </component>
 </project>
