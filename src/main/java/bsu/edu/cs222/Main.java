@@ -54,7 +54,7 @@ public class Main {
             String nextLink = iterator.next();
 
             JButton button = new JButton(hyperlink);
-            Dimension maxButtonSize = new Dimension(100, 20);
+            Dimension maxButtonSize = new Dimension(210, 32);
             button.setPreferredSize(maxButtonSize);
 
             button.addActionListener(e -> {
