@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Commit 6, Finalized the functionality of the gui, added multiple windows when switching to new links, and continued formatting">
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Commit 6.5, Worked on adding some minor changes to pre-existing code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" afterDir="false" />
     </list>
@@ -211,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698261344965</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Commit 6.5, Worked on adding some minor changes to pre-existing code">
+      <created>1698335182406</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698335182406</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -225,6 +232,7 @@
     <MESSAGE value="Commit 5, altered gui layout, and added buttons" />
     <MESSAGE value="Commit 5.5, altered gui layout, and edited buttons" />
     <MESSAGE value="Commit 6, Finalized the functionality of the gui, added multiple windows when switching to new links, and continued formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 6, Finalized the functionality of the gui, added multiple windows when switching to new links, and continued formatting" />
+    <MESSAGE value="Commit 6.5, Worked on adding some minor changes to pre-existing code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit 6.5, Worked on adding some minor changes to pre-existing code" />
   </component>
 </project>
