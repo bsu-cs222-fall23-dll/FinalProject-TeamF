@@ -1,13 +1,9 @@
 package bsu.edu.cs222;
 
-public class URLConnection extends User{
-    public String startingURL(){
-        String search = getStartingPage();
-        String startingURL = makeConnection(search);
-        return startingURL;
-    }
-    public String makeConnection(String startingSite){
-        String searchableTitle = makeSearchable(startingSite);
+public class URLConnection{
+
+    public String makeConnection(String site){
+        String searchableTitle = makeSearchable(site);
         String URL = "https://en.wikipedia.org/"+searchableTitle;
         return URL;
     }
