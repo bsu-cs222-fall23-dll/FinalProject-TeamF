@@ -2,8 +2,6 @@ package bsu.edu.cs222;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
@@ -43,7 +41,7 @@ public class Main {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(0, 8));
 
-        List<String> next = null;
+        List<String> next;
         try {
             next = info.findHyper("https://en.wikipedia.org" + link);
         } catch (IOException e) {
@@ -59,13 +57,11 @@ public class Main {
             Dimension maxButtonSize = new Dimension(100, 20);
             button.setPreferredSize(maxButtonSize);
 
-            button.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    counter++;
-                    continuing(nextLink);
-                    frame.dispose();
+            button.addActionListener(e -> {
+                counter++;
+                continuing(nextLink);
+                frame.dispose();
 
-                }
             });
             buttonPanel.add(button);
         }
