@@ -25,7 +25,7 @@ public class Main {
         buttonPanel.setLayout(new GridLayout(0, 8));
 
 
-        List<String> Set= null;
+        List<String> Set = null;
         try {
             Set = info.findHyper("https://en.wikipedia.org/wiki/Cat");
         } catch (IOException e) {
@@ -62,7 +62,7 @@ public class Main {
     public static void continuing(String link){
         HyperLinkParser info = new HyperLinkParser();
 
-        JFrame frame = new JFrame("Hyperlinks");
+        JFrame frame = new JFrame(link);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
