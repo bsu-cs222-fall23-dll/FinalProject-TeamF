@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Adjust scroll functionality to be independent of screen size">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Add back button functionality">
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -200,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698772485931</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add back button functionality">
+      <option name="closed" value="true" />
+      <created>1698773665742</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698773665742</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -211,6 +218,7 @@
     <MESSAGE value="Remove duplicate Junit dependencies" />
     <MESSAGE value="Implement scroll functionality." />
     <MESSAGE value="Adjust scroll functionality to be independent of screen size" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjust scroll functionality to be independent of screen size" />
+    <MESSAGE value="Add back button functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add back button functionality" />
   </component>
 </project>

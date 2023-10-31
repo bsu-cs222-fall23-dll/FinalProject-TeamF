@@ -30,7 +30,7 @@ public class Main {
             timerEnd = System.currentTimeMillis();
             totalTime = timerEnd - timerStart;
             double seconds = totalTime/1000.0;
-            JOptionPane.showMessageDialog(null,"Congrats! you did it! \n It took " + counter + " Clicks and " +seconds + " Seconds!");
+            JOptionPane.showMessageDialog(null,"Congrats! you did it! \n It took " + counter + " Clicks and " +seconds + " Seconds! \n But, you used " + backButtonCounter + " Back button press(es)...");
             System.exit(0);
         }
 
