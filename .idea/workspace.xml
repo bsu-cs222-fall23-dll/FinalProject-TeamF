@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Commit 6.5, Worked on adding some minor changes to pre-existing code">
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Remove duplicate Junit dependencies">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_24_2023_12_26_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" afterDir="false" />
     </list>
@@ -117,6 +118,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -165,49 +177,7 @@
       <option name="project" value="LOCAL" />
       <updated>1698164744061</updated>
     </task>
-    <task id="LOCAL-00005" summary="Commit 4, added initial gui functions">
-      <created>1698169608062</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1698169608062</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Commit 4, added initial gui functions">
-      <created>1698169640582</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1698169640582</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Commit 5, altered gui layout, and added buttons">
-      <created>1698248916801</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1698248916801</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Commit 5.5, altered gui layout, and edited buttons">
-      <created>1698254562295</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1698254562295</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Commit 6, Finalized the functionality of the gui, added multiple windows when switching to new links, and continued formatting">
-      <created>1698261344965</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1698261344965</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Commit 6.5, Worked on adding some minor changes to pre-existing code">
-      <created>1698335182406</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1698335182406</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -216,12 +186,6 @@
     <MESSAGE value="Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test" />
     <MESSAGE value="Remove duplicate Junit dependency" />
     <MESSAGE value="Remove duplicate Junit dependencies" />
-    <MESSAGE value="Commit 5, worked on altering display of gui" />
-    <MESSAGE value="Commit 4, added initial gui functions" />
-    <MESSAGE value="Commit 5, altered gui layout, and added buttons" />
-    <MESSAGE value="Commit 5.5, altered gui layout, and edited buttons" />
-    <MESSAGE value="Commit 6, Finalized the functionality of the gui, added multiple windows when switching to new links, and continued formatting" />
-    <MESSAGE value="Commit 6.5, Worked on adding some minor changes to pre-existing code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 6.5, Worked on adding some minor changes to pre-existing code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove duplicate Junit dependencies" />
   </component>
 </project>

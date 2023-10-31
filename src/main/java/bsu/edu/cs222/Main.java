@@ -2,8 +2,6 @@ package bsu.edu.cs222;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
@@ -41,9 +39,9 @@ public class Main {
         primary.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(0, 8));
+        buttonPanel.setLayout(new GridLayout(0, 5));
 
-        List<String> next = null;
+        List<String> next;
         try {
             next = info.findHyper("https://en.wikipedia.org" + link);
         } catch (IOException e) {
@@ -55,23 +53,23 @@ public class Main {
             String hyperlink = iterator.next();
             String nextLink = iterator.next();
 
+
             JButton button = new JButton(hyperlink);
-            Dimension maxButtonSize = new Dimension(100, 20);
+            Dimension maxButtonSize = new Dimension(200, 35);
             button.setPreferredSize(maxButtonSize);
 
-            button.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    counter++;
-                    continuing(nextLink);
-                    frame.dispose();
+            button.addActionListener(e -> {
+                counter++;
+                continuing(nextLink);
+                frame.dispose();
 
-                }
             });
             buttonPanel.add(button);
         }
 
         JScrollPane scrollPane = new JScrollPane(buttonPanel);
-        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setAutoscrolls(true);
+        scrollPane.setPreferredSize(new Dimension(1100,600));
 
         primary.add(scrollPane);
         frame.add(primary);
