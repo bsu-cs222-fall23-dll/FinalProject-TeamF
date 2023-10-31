@@ -69,7 +69,7 @@ public class Main {
 
         JScrollPane scrollPane = new JScrollPane(buttonPanel);
         scrollPane.setAutoscrolls(true);
-        scrollPane.setPreferredSize(new Dimension(1100,600));
+        scrollPane.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
 
         primary.add(scrollPane);
         frame.add(primary);
