@@ -1,0 +1,80 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"33ee95eb-0e09-4c7f-9781-195264da447c\" name=\"Changes\" comment=\"Remove duplicate Junit dependencies\">\r\n      <change afterPath=\"$PROJECT_DIR$/README.md\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PREVIOUS_COMMIT_AUTHORS\">\r\n      <list>\r\n        <option value=\"Hunter Johns &lt;hunter.johns@bsu.edu&gt;\" />\r\n        <option value=\"Hunter-Johns\" />\r\n      </list>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2WxvAJtS66YWpoL92YDJuxO3CCO\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"JUnit.hyperLinkTest.hyperLinkTest\">\r\n    <configuration name=\"connectionTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"bsu.edu.cs222.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"bsu.edu.cs222\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"bsu.edu.cs222.connectionTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"cs222 in Final_Project_Finley_Brennan_Hunter\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <option name=\"TEST_OBJECT\" value=\"directory\" />\r\n      <dir value=\"$PROJECT_DIR$/src/test/java/bsu/edu/cs222\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"hyperLinkTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"bsu.edu.cs222.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"bsu.edu.cs222\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"bsu.edu.cs222.hyperLinkTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"hyperLinkTest.hyperLinkTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"bsu.edu.cs222.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"bsu.edu.cs222\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"bsu.edu.cs222.hyperLinkTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"hyperLinkTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.hyperLinkTest.hyperLinkTest\" />\r\n        <item itemvalue=\"JUnit.cs222 in Final_Project_Finley_Brennan_Hunter\" />\r\n        <item itemvalue=\"JUnit.hyperLinkTest\" />\r\n        <item itemvalue=\"JUnit.connectionTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"33ee95eb-0e09-4c7f-9781-195264da447c\" name=\"Changes\" comment=\"\" />\r\n      <created>1697686902031</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1697686902031</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"cudsijn\">\r\n      <created>1697687002828</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1697687002828</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Commit 1 Added Jsoup and converted to Maven\">\r\n      <created>1697687134845</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1697687134845</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test\">\r\n      <created>1697690638475</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1697690638475</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Remove duplicate Junit dependencies\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698164744061</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698164744061</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"cudsijn\" />\r\n    <MESSAGE value=\"Commit 1 Added Jsoup and converted to Maven\" />\r\n    <MESSAGE value=\"Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test\" />\r\n    <MESSAGE value=\"Remove duplicate Junit dependency\" />\r\n    <MESSAGE value=\"Remove duplicate Junit dependencies\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Remove duplicate Junit dependencies\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 4daa47da2b29b26b7f0247f97b51b692cec2b28a)
++++ b/.idea/workspace.xml	(date 1698338658328)
+@@ -4,8 +4,8 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Remove duplicate Junit dependencies">
+-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
++    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Add README.md">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_24_2023_12_26_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_24_2023_12_26_PM__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -50,6 +50,19 @@
+   }
+ }</component>
+   <component name="RunManager" selected="JUnit.hyperLinkTest.hyperLinkTest">
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.Main" />
++      <module name="Final_Project_Finley_Brennan_Hunter" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="bsu.edu.cs222.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="connectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="Final_Project_Finley_Brennan_Hunter" />
+       <extension name="coverage">
+@@ -118,9 +131,10 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="JUnit.hyperLinkTest.hyperLinkTest" />
++        <item itemvalue="JUnit.connectionTest" />
++        <item itemvalue="Application.Main" />
+         <item itemvalue="JUnit.cs222 in Final_Project_Finley_Brennan_Hunter" />
+         <item itemvalue="JUnit.hyperLinkTest" />
+-        <item itemvalue="JUnit.connectionTest" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -162,7 +176,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1698164744061</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="Add README.md">
++      <option name="closed" value="true" />
++      <created>1698167418921</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1698167418921</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+@@ -171,6 +193,7 @@
+     <MESSAGE value="Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test" />
+     <MESSAGE value="Remove duplicate Junit dependency" />
+     <MESSAGE value="Remove duplicate Junit dependencies" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Remove duplicate Junit dependencies" />
++    <MESSAGE value="Add README.md" />
++    <option name="LAST_COMMIT_MESSAGE" value="Add README.md" />
+   </component>
+ </project>
+\ No newline at end of file
