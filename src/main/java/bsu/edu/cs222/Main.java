@@ -9,18 +9,23 @@ import java.util.List;
 public class Main {
     static String end;
     static int counter = 0;
+    static int backButtonCounter = 0;
     static long timerStart;
     static long timerEnd;
     static long totalTime;
+
+    static String lastLink;
 
     public static void main(String[] args) {
         String start = JOptionPane.showInputDialog(null, "What Wiki page would you like to start out with?");
         end = JOptionPane.showInputDialog(null, "What Wiki page would you like to end with?");
         timerStart = System.currentTimeMillis();
+        lastLink = start;
         continuing("/wiki/" + start);
     }
 
     public static void continuing(String link){
+
         if (link.contains(end)){
             timerEnd = System.currentTimeMillis();
             totalTime = timerEnd - timerStart;
@@ -48,6 +53,16 @@ public class Main {
             throw new RuntimeException(e);
         }
 
+        JButton backButton = new JButton("Previous");
+        backButton.setPreferredSize(new Dimension(200,35));
+
+        backButton.addActionListener(e -> {
+            backButtonCounter++;
+            continuing(lastLink);
+            frame.dispose();
+        });
+        buttonPanel.add(backButton);
+
         Iterator<String> iterator = next.iterator();
         while (iterator.hasNext()) {
             String hyperlink = iterator.next();
@@ -60,9 +75,9 @@ public class Main {
 
             button.addActionListener(e -> {
                 counter++;
+                lastLink = link;
                 continuing(nextLink);
                 frame.dispose();
-
             });
             buttonPanel.add(button);
         }
