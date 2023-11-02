@@ -4,19 +4,18 @@ public class URLConnection{
 
     public String makeConnection(String site){
         String searchableTitle = makeSearchable(site);
-        String URL = "https://en.wikipedia.org/"+searchableTitle;
-        return URL;
+        return "https://en.wikipedia.org/"+searchableTitle;
     }
     public String makeSearchable(String startingSite){
-        String searchableTitle="";
+        StringBuilder searchableTitle= new StringBuilder();
         for (char c: startingSite.toCharArray()){
             if (Character.isWhitespace(c)){
-                searchableTitle = searchableTitle + "_";
+                searchableTitle.append("_");
             }else{
-                searchableTitle = searchableTitle + c;
+                searchableTitle.append(c);
             }
 
         }
-        return searchableTitle;
+        return searchableTitle.toString();
     }
 }
