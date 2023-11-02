@@ -11,7 +11,7 @@ public class URLConnection{
         String searchableTitle="";
         for (char c: startingSite.toCharArray()){
             if (Character.isWhitespace(c)){
-                searchableTitle = searchableTitle +"_";
+                searchableTitle = searchableTitle + "_";
             }else{
                 searchableTitle = searchableTitle + c;
             }

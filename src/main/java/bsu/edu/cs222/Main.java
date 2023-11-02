@@ -44,7 +44,7 @@ public class Main {
         primary.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(0, 5));
+        buttonPanel.setLayout(new GridLayout(0, 4));
 
         List<String> next;
         try {
