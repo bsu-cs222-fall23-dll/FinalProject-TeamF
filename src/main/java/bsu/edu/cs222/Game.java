@@ -8,14 +8,13 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Game {
-    static long timerStart;
     static String lastLink;
     static long timerEnd;
     static long totalTime;
     static int counter = 0;
     static int backButtonCounter = 0;
 
-    public static void gameStart(String link, String end, AtomicBoolean hasBackButton){
+    public static void gameStart(String link, String end, AtomicBoolean hasBackButton, long timerStart){
 
 
 
@@ -55,7 +54,7 @@ public class Game {
 
             backButton.addActionListener(e -> {
                 backButtonCounter++;
-                gameStart(lastLink, end, hasBackButton);
+                gameStart(lastLink, end, hasBackButton, timerStart);
                 frame.dispose();
             });
             buttonPanel.add(backButton);
@@ -74,7 +73,7 @@ public class Game {
             button.addActionListener(e -> {
                 counter++;
                 lastLink = link;
-                gameStart(nextLink, end, hasBackButton);
+                gameStart(nextLink, end, hasBackButton, timerStart);
                 frame.dispose();
             });
             buttonPanel.add(button);
@@ -89,5 +88,74 @@ public class Game {
         frame.add(primary);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
+    }
+
+
+
+    public static void hardModeGameStart(String link, String end, long timerStart){
+
+        long timeLimit = timerStart + 999;
+
+        if (System.currentTimeMillis() < timeLimit) {
+            if (link.contains(end)) {
+                timerEnd = System.currentTimeMillis();
+                totalTime = timerEnd - timerStart;
+                double seconds = totalTime / 1000.0;
+                JOptionPane.showMessageDialog(null, "Congrats! you did it! \n It took " + counter + " Clicks and " + seconds + " Seconds!");
+                System.exit(0);
+            }
+
+            HyperLinkParser info = new HyperLinkParser();
+
+            JFrame frame = new JFrame(link + "     Get to " + end);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setLayout(new BorderLayout());
+
+            JPanel primary = new JPanel();
+            primary.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+
+            JPanel buttonPanel = new JPanel();
+            buttonPanel.setLayout(new GridLayout(0, 4));
+
+            List<String> next;
+            try {
+                next = info.findHyper("https://en.wikipedia.org" + link);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            Iterator<String> iterator = next.iterator();
+            while (iterator.hasNext()) {
+                String hyperlink = iterator.next();
+                String nextLink = iterator.next();
+
+
+                JButton button = new JButton(hyperlink);
+                Dimension maxButtonSize = new Dimension(200, 35);
+                button.setPreferredSize(maxButtonSize);
+
+                button.addActionListener(e -> {
+                    counter++;
+                    lastLink = link;
+                    hardModeGameStart(nextLink, end, timerStart);
+                    frame.dispose();
+                });
+                buttonPanel.add(button);
+            }
+
+            JScrollPane scrollPane = new JScrollPane(buttonPanel);
+            scrollPane.setAutoscrolls(true);
+            scrollPane.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+            scrollPane.getVerticalScrollBar().setUnitIncrement(20);
+
+            primary.add(scrollPane);
+            frame.add(primary);
+            frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            frame.setVisible(true);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Unfortunately, you have run out of time. Better luck next time!");
+            System.exit(0);
+        }
     }
 }

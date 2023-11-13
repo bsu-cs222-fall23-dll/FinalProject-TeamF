@@ -22,6 +22,7 @@ public class Main {
 
         Button initialize = new Button("Start Game!");
         Button setBackButton = new Button("Back button?");
+        Button hardMode = new Button("Hard mode!");
 
         TextField beginning = new TextField(20);
         TextField ending = new TextField(20);
@@ -29,16 +30,27 @@ public class Main {
         mainContents.add(ending, organizer);
         mainContents.add(initialize, organizer);
         mainContents.add(setBackButton, organizer);
+        mainContents.add(hardMode, organizer);
 
         initialize.addActionListener(e -> {
             String start = beginning.getText();
             String end = ending.getText();
             String link = "/wiki/" + start;
+            long timerStart = System.currentTimeMillis();
 
-            Game.gameStart(link, end, hasBackButton);
+            Game.gameStart(link, end, hasBackButton, timerStart);
         });
 
         setBackButton.addActionListener(e -> hasBackButton.set(true));
+
+        hardMode.addActionListener(e -> {
+            String start = beginning.getText();
+            String end = ending.getText();
+            String link = "/wiki/" + start;
+            long timerStart = System.currentTimeMillis();
+
+            Game.hardModeGameStart(link, end, timerStart);
+        });
 
         mainMenu.add(mainContents);
         mainMenu.setExtendedState(JFrame.MAXIMIZED_BOTH);

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Add back button usage display to end of game pop-up">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Adjust end screen to avoid stating back button presses if not applicable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" afterDir="false" />
@@ -224,7 +223,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698942805223</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add option to use back button or not">
+      <option name="closed" value="true" />
+      <created>1699848683060</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699848683060</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Adjust end screen to avoid stating back button presses if not applicable">
+      <option name="closed" value="true" />
+      <created>1699848831536</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699848831536</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -239,6 +254,8 @@
     <MESSAGE value="Add back button usage display to end of game pop-up" />
     <MESSAGE value="Adjust end screen message, adjust scroll speed" />
     <MESSAGE value="Adjust UI, mitigate warnings in compiler" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjust UI, mitigate warnings in compiler" />
+    <MESSAGE value="Add option to use back button or not" />
+    <MESSAGE value="Adjust end screen to avoid stating back button presses if not applicable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjust end screen to avoid stating back button presses if not applicable" />
   </component>
 </project>
