@@ -94,7 +94,7 @@ public class Game {
 
     public static void hardModeGameStart(String link, String end, long timerStart){
 
-        long timeLimit = timerStart + 999;
+        long timeLimit = timerStart + 30_000;
 
         if (System.currentTimeMillis() < timeLimit) {
             if (link.contains(end)) {

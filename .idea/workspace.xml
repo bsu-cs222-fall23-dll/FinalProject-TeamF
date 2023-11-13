@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Adjust end screen to avoid stating back button presses if not applicable">
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Add hard mode which implements a time limit that allows one final click before timing out. Side product of this is the fix of the timers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699848831536</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add hard mode which implements a time limit that allows one final click before timing out. Side product of this is the fix of the timers">
+      <option name="closed" value="true" />
+      <created>1699850824241</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699850824241</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -256,6 +263,7 @@
     <MESSAGE value="Adjust UI, mitigate warnings in compiler" />
     <MESSAGE value="Add option to use back button or not" />
     <MESSAGE value="Adjust end screen to avoid stating back button presses if not applicable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjust end screen to avoid stating back button presses if not applicable" />
+    <MESSAGE value="Add hard mode which implements a time limit that allows one final click before timing out. Side product of this is the fix of the timers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add hard mode which implements a time limit that allows one final click before timing out. Side product of this is the fix of the timers" />
   </component>
 </project>
