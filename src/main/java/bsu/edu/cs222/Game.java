@@ -23,7 +23,10 @@ public class Game {
             timerEnd = System.currentTimeMillis();
             totalTime = timerEnd - timerStart;
             double seconds = totalTime/1000.0;
-            JOptionPane.showMessageDialog(null,"Congrats! you did it! \n It took " + counter + " Clicks and " +seconds + " Seconds! \n You used " + backButtonCounter + " Back button press(es).");
+            if (hasBackButton.get()) {
+                JOptionPane.showMessageDialog(null,"Congrats! you did it! \n It took " + counter + " Clicks and " +seconds + " Seconds! \n You used " + backButtonCounter + " Back button press(es).");
+            }
+            else {JOptionPane.showMessageDialog(null,"Congrats! you did it! \n It took " + counter + " Clicks and " +seconds + " Seconds!");}
             System.exit(0);
         }
 
