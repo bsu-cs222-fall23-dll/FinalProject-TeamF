@@ -5,6 +5,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Game {
     static long timerStart;
@@ -14,7 +15,9 @@ public class Game {
     static int counter = 0;
     static int backButtonCounter = 0;
 
-    public static void gameStart(String link, String end){
+    public static void gameStart(String link, String end, AtomicBoolean hasBackButton){
+
+
 
         if (link.contains(end)){
             timerEnd = System.currentTimeMillis();
@@ -43,15 +46,17 @@ public class Game {
             throw new RuntimeException(e);
         }
 
+        if (hasBackButton.get()) {
         JButton backButton = new JButton("Previous");
         backButton.setPreferredSize(new Dimension(200,35));
 
-        backButton.addActionListener(e -> {
-            backButtonCounter++;
-            gameStart(lastLink, end);
-            frame.dispose();
-        });
-        buttonPanel.add(backButton);
+            backButton.addActionListener(e -> {
+                backButtonCounter++;
+                gameStart(lastLink, end, hasBackButton);
+                frame.dispose();
+            });
+            buttonPanel.add(backButton);
+        }
 
         Iterator<String> iterator = next.iterator();
         while (iterator.hasNext()) {
@@ -66,7 +71,7 @@ public class Game {
             button.addActionListener(e -> {
                 counter++;
                 lastLink = link;
-                gameStart(nextLink, end);
+                gameStart(nextLink, end, hasBackButton);
                 frame.dispose();
             });
             buttonPanel.add(button);
