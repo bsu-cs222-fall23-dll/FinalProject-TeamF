@@ -41,7 +41,8 @@ public class Main {
             Game.gameStart(link, end, hasBackButton, timerStart);
         });
 
-        setBackButton.addActionListener(e -> hasBackButton.set(true));
+        setBackButton.addActionListener(e -> {hasBackButton.set(true);
+        setBackButton.setLabel("Back button enabled.");});
 
         hardMode.addActionListener(e -> {
             String start = beginning.getText();
