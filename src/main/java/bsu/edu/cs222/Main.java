@@ -22,7 +22,7 @@ public class Main {
 
         Button initialize = new Button("Start Game!");
         Button setBackButton = new Button("Back button?");
-        Button hardMode = new Button("Hard mode!");
+        Button hardMode = new Button("Hard mode! (30 sec time limit, no back button)");
 
         TextField beginning = new TextField(20);
         TextField ending = new TextField(20);
@@ -41,7 +41,8 @@ public class Main {
             Game.gameStart(link, end, hasBackButton, timerStart);
         });
 
-        setBackButton.addActionListener(e -> hasBackButton.set(true));
+        setBackButton.addActionListener(e -> {hasBackButton.set(true);
+        setBackButton.setLabel("Back button enabled.");});
 
         hardMode.addActionListener(e -> {
             String start = beginning.getText();
