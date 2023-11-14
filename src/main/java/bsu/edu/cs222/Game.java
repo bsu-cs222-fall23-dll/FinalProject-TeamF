@@ -90,7 +90,6 @@ public class Game {
 
 
     public static void hardModeGameStart(String link, String end, long timerStart){
-        Main restart = new Main();
         long timeLimit = timerStart + 30_000;
 
         if (System.currentTimeMillis() < timeLimit) {
@@ -152,7 +151,7 @@ public class Game {
         }
         else {
             JOptionPane.showMessageDialog(null, "Unfortunately, you have run out of time. Better luck next time!");
-            restart.mainMenu();
+            Main.mainMenu();
         }
     }
 }

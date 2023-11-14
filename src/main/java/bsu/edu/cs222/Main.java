@@ -12,7 +12,6 @@ public class Main {
     }
     public static void mainMenu() {
         AtomicBoolean hasBackButton = new AtomicBoolean(false);
-        Game begin = new Game();
 
         JFrame mainMenu = new JFrame();
         mainMenu.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
@@ -52,9 +51,7 @@ public class Main {
         verticalPanel.add(setBackButton);
         verticalPanel.add(hardModePanel);
 
-        hardModeInfo.addActionListener(e -> {
-            JOptionPane.showMessageDialog(null, "Hard mode rules: \n No back button \n 4:30 timer");
-        });
+        hardModeInfo.addActionListener(e -> JOptionPane.showMessageDialog(null, "Hard mode rules: \n No back button \n 4:30 timer"));
 
         initialize.addActionListener(e -> {
             String start = beginning.getText();

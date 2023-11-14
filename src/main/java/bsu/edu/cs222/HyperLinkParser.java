@@ -25,8 +25,7 @@ public class HyperLinkParser extends URLConnection{
         for (Element element : elements){
             links.add(element.attr("href"));
         }
-        List<String> combined = addAtrr(links);
-        return combined;
+        return addAtrr(links);
 
     }
     private List<String> addAtrr(List<String> links ){
