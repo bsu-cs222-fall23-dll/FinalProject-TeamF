@@ -32,15 +32,13 @@ public class Main {
         horizontalPanel.add(ending);
         horizontalPanel.add(initialize);
 
-
-
         JPanel verticalPanel = new JPanel();
         verticalPanel.setLayout(new BoxLayout(verticalPanel, BoxLayout.Y_AXIS));
         Button setBackButton = new Button("Back button?");
         Button hardMode = new Button("Hard mode!");
         Button hardModeInfo = new Button("?");
 
-        Dimension buttonSize = new Dimension(100, 30);
+        Dimension buttonSize = new Dimension(300, 30);
         Dimension question = new Dimension(20, 30);
         setBackButton.setMaximumSize(buttonSize);
         hardMode.setMaximumSize(buttonSize);
@@ -53,6 +51,10 @@ public class Main {
         verticalPanel.add(Box.createVerticalStrut(10));
         verticalPanel.add(setBackButton);
         verticalPanel.add(hardModePanel);
+
+        hardModeInfo.addActionListener(e -> {
+            JOptionPane.showMessageDialog(null, "Hard mode rules: \n No back button \n 4:30 timer");
+        });
 
         initialize.addActionListener(e -> {
             String start = beginning.getText();
@@ -69,12 +71,19 @@ public class Main {
         });
 
         hardMode.addActionListener(e -> {
+
             String start = beginning.getText();
             String end = ending.getText();
-            String link = "/wiki/" + start;
-            long timerStart = System.currentTimeMillis();
+            if (start.equals("Enter your starting link:") || end.equals("Enter your ending link:")){
+                JOptionPane.showMessageDialog(null, "No input, restarting!");
+                mainMenu.dispose();
+                mainMenu();
+            }else {
+                String link = "/wiki/" + start;
+                long timerStart = System.currentTimeMillis();
 
-            Game.hardModeGameStart(link, end, timerStart);
+                Game.hardModeGameStart(link, end, timerStart);
+            }
         });
 
         mainContents.add(horizontalPanel);
