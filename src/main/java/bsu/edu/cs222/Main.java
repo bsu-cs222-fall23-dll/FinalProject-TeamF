@@ -57,10 +57,16 @@ public class Main {
         initialize.addActionListener(e -> {
             String start = beginning.getText();
             String end = ending.getText();
-            String link = "/wiki/" + start;
-            long timerStart = System.currentTimeMillis();
+            if (start.equals("Enter your starting link:") || end.equals("Enter your ending link:")){
+                JOptionPane.showMessageDialog(null, "No input, restarting!");
+                mainMenu.dispose();
+                mainMenu();
+            }else {
+                String link = "/wiki/" + start;
+                long timerStart = System.currentTimeMillis();
 
-            Game.gameStart(link, end, hasBackButton, timerStart);
+                Game.gameStart(link, end, hasBackButton, timerStart);
+            }
         });
 
         setBackButton.addActionListener(e -> {

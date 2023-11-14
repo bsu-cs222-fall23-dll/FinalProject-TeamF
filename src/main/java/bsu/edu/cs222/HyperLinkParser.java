@@ -52,5 +52,4 @@ public class HyperLinkParser extends URLConnection{
         boolean target = false;
         target = URL.equals(endingURL);
     }
-
 }
