@@ -51,7 +51,8 @@ public class Main {
         verticalPanel.add(setBackButton);
         verticalPanel.add(hardModePanel);
 
-        hardModeInfo.addActionListener(e -> JOptionPane.showMessageDialog(null, "Hard mode rules: \n No back button \n 4:30 timer"));
+        hardModeInfo.addActionListener(e ->
+                JOptionPane.showMessageDialog(null, "Hard mode rules: \n No back button \n 4:30 timer"));
 
         initialize.addActionListener(e -> {
             String start = beginning.getText();

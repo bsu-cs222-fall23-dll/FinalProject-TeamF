@@ -14,7 +14,6 @@ public class HyperLinkParser extends URLConnection{
 
     public List<String> findHyper(String URL) throws IOException {
         List<String> links = new ArrayList<>();
-        List<String> titles = new ArrayList<>();
         Document doc = Jsoup.connect(URL)
                 .data("query","Java")
                 .userAgent("Mozilla")
@@ -25,14 +24,14 @@ public class HyperLinkParser extends URLConnection{
         for (Element element : elements){
             links.add(element.attr("href"));
         }
-        return addAtrr(links);
+        return addArr(links);
 
     }
-    private List<String> addAtrr(List<String> links ){
-        Iterator sortLinks = links.iterator();
+    private List<String> addArr(List<String> links ){
+        Iterator<String> sortLinks = links.iterator();
         List <String> combined= new ArrayList<>();
         while (sortLinks.hasNext()){
-            String link = (String) sortLinks.next();
+            String link = sortLinks.next();
             if (link.startsWith("/wiki/")
                     &&!link.startsWith("/wiki/File")
                     &&!link.startsWith("/wiki/Special")
@@ -50,12 +49,8 @@ public class HyperLinkParser extends URLConnection{
         return combined;
     }
     public void gameEnd(String URL, String endingURL){
-        Boolean target = false;
-        if (URL.equals(endingURL)){
-            target = true;
-        }else{
-            target = false;
-        }
+        boolean target = false;
+        target = URL.equals(endingURL);
     }
 
 }
