@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Adjust hard mode to include a 30-second time limit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,17 +66,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="connectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainMenu" />
       <module name="Final_Project_Finley_Brennan_Hunter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bsu.edu.cs222.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.connectionTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,10 +115,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainMenu" />
         <item itemvalue="JUnit.hyperLinkTest.hyperLinkTest" />
         <item itemvalue="JUnit.cs222 in Final_Project_Finley_Brennan_Hunter" />
         <item itemvalue="JUnit.hyperLinkTest" />
-        <item itemvalue="JUnit.connectionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -273,5 +268,10 @@
     <MESSAGE value="Add hard mode which implements a time limit that allows one final click before timing out. Side product of this is the fix of the timers" />
     <MESSAGE value="Adjust hard mode to include a 30-second time limit" />
     <option name="LAST_COMMIT_MESSAGE" value="Adjust hard mode to include a 30-second time limit" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FinalProject_TeamF$Main.ic" NAME="Main Coverage Results" MODIFIED="1699921672084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bsu.edu.cs222.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -2,11 +2,25 @@ package bsu.edu.cs222;
 
 
 
-public class User {
+public class User{
     public String startingPage;
     public String endingPage;
     public String startingURL;
     public String endingURL;
+
+    public User(String start, String end) {
+        this.setStartingPage(start);
+        this.setEndingPage(end);
+        setStartingURL(startingPage);
+        setEndingURL(endingPage);
+    }
+
+    public void getStartInfo(){
+        getStartingURL();
+        getEndingURL();
+    }
+
+
 
     public void setStartingPage(String startingPage){
         this.startingPage=startingPage;
