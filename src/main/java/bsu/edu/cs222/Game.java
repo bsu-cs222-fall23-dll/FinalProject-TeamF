@@ -90,14 +90,14 @@ public class Game {
 
 
     public static void hardModeGameStart(String link, String end, long timerStart){
-        long timeLimit = timerStart + 30_000;
+        long timeLimit = timerStart + 270_000;
 
         if (System.currentTimeMillis() < timeLimit) {
             if (link.contains(end)) {
                 timerEnd = System.currentTimeMillis();
                 totalTime = timerEnd - timerStart;
                 double seconds = totalTime / 1000.0;
-                JOptionPane.showMessageDialog(null, "Congrats! you did it! \n It took " + counter + " Clicks and " + seconds + " Seconds!");
+                JOptionPane.showMessageDialog(null, "Congrats! you beat hard mode! \n It took " + counter + " Clicks and " + seconds + " Seconds!");
                 System.exit(0);
             }
 
