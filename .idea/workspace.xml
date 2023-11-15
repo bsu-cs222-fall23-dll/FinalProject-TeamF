@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Started scoreboard- no output yet.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/ScoreBoardComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/ScoreboardComparatorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Scoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Scoreboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" afterDir="false" />
@@ -66,9 +68,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainMenu" />
+    <configuration name="ScoreboardComparatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bsu.edu.cs222.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardComparatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScoreboardComparatorTest.TestScoreboard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Final_Project_Finley_Brennan_Hunter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bsu.edu.cs222.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardComparatorTest" />
+      <option name="METHOD_NAME" value="TestScoreboard" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -88,7 +114,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScoreboardTest.TestScoreboard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScoreboardTest.scoreKeeperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
       <extension name="coverage">
         <pattern>
@@ -98,23 +124,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
       <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardTest" />
-      <option name="METHOD_NAME" value="TestScoreboard" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="hyperLinkTest.hyperLinkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Final_Project_Finley_Brennan_Hunter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bsu.edu.cs222.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.hyperLinkTest" />
-      <option name="METHOD_NAME" value="hyperLinkTest" />
+      <option name="METHOD_NAME" value="scoreKeeperTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -123,10 +133,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ScoreboardTest" />
-        <item itemvalue="JUnit.ScoreboardTest.TestScoreboard" />
+        <item itemvalue="JUnit.ScoreboardTest.scoreKeeperTest" />
+        <item itemvalue="JUnit.ScoreboardComparatorTest" />
+        <item itemvalue="JUnit.ScoreboardComparatorTest.TestScoreboard" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.MainMenu" />
-        <item itemvalue="JUnit.hyperLinkTest.hyperLinkTest" />
       </list>
     </recent_temporary>
   </component>
@@ -284,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699925815973</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Started scoreboard- no output yet.">
+      <created>1700008330490</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1700008330490</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -9,9 +9,7 @@ public class Scoreboard {
 
     public String scoreKeeper(User user){
         scoreBoard.add(user);
-        Collections.sort(scoreBoard);
-        String scoreboardString = scoreBoard.toString();
-        return scoreboardString;
+        Collections.sort(scoreBoard, new ScoreBoardComparator());
+        return scoreBoard.toString();
     }
-
 }
