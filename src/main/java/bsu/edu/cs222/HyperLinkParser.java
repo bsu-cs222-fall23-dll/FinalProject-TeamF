@@ -40,8 +40,18 @@ public class HyperLinkParser extends URLConnection{
                     &&!link.startsWith("/wiki/Help")
                     &&!link.startsWith("/wiki/Wikipedia")
                     &&!link.startsWith("/wiki/Talk")
+                    &&!link.startsWith("/wiki/Main_Page")
+                    &&!link.startsWith("/wiki/Template")
                     &&!link.startsWith("/wiki/Portal")){
                 String title= link.replace("/wiki/","");
+                title= title.replace("_"," ");
+                title= title.replace("#"," ");
+                title= title.replace("%26","&");
+                title= title.replace("%27","'");
+                title= title.replace("%C3%A1","a");
+                title= title.replace("%C3%A9","e");
+                title= title.replace("%E2%80%93","-");
+
                 combined.add(title);
                 combined.add(link);
             }

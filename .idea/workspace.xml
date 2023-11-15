@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Started scoreboard- no output yet.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/ScoreBoardComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/ScoreboardComparatorTest.java" afterDir="false" />
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Finished the base of scoreboard">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Scoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Scoreboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/ScoreboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/ScoreboardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +50,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ScoreboardTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.Main" />
       <module name="Final_Project_Finley_Brennan_Hunter" />
@@ -132,11 +128,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ScoreboardTest" />
         <item itemvalue="JUnit.ScoreboardTest.scoreKeeperTest" />
         <item itemvalue="JUnit.ScoreboardComparatorTest" />
         <item itemvalue="JUnit.ScoreboardComparatorTest.TestScoreboard" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -301,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700008330490</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Finished the base of scoreboard">
+      <created>1700011303510</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1700011303510</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -336,7 +339,8 @@
     <MESSAGE value="Fixed multiple errors" />
     <MESSAGE value="Fixed multiple more errors" />
     <MESSAGE value="Started scoreboard- no output yet." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started scoreboard- no output yet." />
+    <MESSAGE value="Finished the base of scoreboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the base of scoreboard" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FinalProject_TeamF$Main.ic" NAME="Main Coverage Results" MODIFIED="1699921672084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
