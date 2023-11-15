@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Fixed multiple more errors">
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Started scoreboard- no output yet.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Scoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Scoreboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/ScoreboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/ScoreboardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +52,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.ScoreboardTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.Main" />
       <module name="Final_Project_Finley_Brennan_Hunter" />
@@ -72,15 +73,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cs222 in Final_Project_Finley_Brennan_Hunter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Final_Project_Finley_Brennan_Hunter" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/bsu/edu/cs222" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="hyperLinkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScoreboardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
       <extension name="coverage">
         <pattern>
@@ -89,8 +82,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.hyperLinkTest" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScoreboardTest.TestScoreboard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Final_Project_Finley_Brennan_Hunter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bsu.edu.cs222.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardTest" />
+      <option name="METHOD_NAME" value="TestScoreboard" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -113,11 +122,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ScoreboardTest" />
+        <item itemvalue="JUnit.ScoreboardTest.TestScoreboard" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.MainMenu" />
         <item itemvalue="JUnit.hyperLinkTest.hyperLinkTest" />
-        <item itemvalue="JUnit.cs222 in Final_Project_Finley_Brennan_Hunter" />
-        <item itemvalue="JUnit.hyperLinkTest" />
       </list>
     </recent_temporary>
   </component>
@@ -278,6 +287,17 @@
     <option name="localTasksCounter" value="20" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="cudsijn" />
     <MESSAGE value="Commit 1 Added Jsoup and converted to Maven" />
@@ -298,7 +318,8 @@
     <MESSAGE value="Edited GUI and edited buttons" />
     <MESSAGE value="Fixed multiple errors" />
     <MESSAGE value="Fixed multiple more errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed multiple more errors" />
+    <MESSAGE value="Started scoreboard- no output yet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started scoreboard- no output yet." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FinalProject_TeamF$Main.ic" NAME="Main Coverage Results" MODIFIED="1699921672084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

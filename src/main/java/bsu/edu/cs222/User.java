@@ -2,17 +2,20 @@ package bsu.edu.cs222;
 
 
 
-public class User{
+public class User implements Comparable<User>{
     public String startingPage;
     public String endingPage;
     public String startingURL;
     public String endingURL;
+    public int clicks;
+    public int time;
 
-    public User(String start, String end) {
-        this.setStartingPage(start);
-        this.setEndingPage(end);
-        setStartingURL(startingPage);
-        setEndingURL(endingPage);
+    public User(String start, String end, int clicks, int time) {
+        this.startingPage=start;
+        this.endingPage=end;
+        this.clicks=clicks;
+        this.time=time;
+
     }
 
     public void getStartInfo(){
@@ -20,21 +23,21 @@ public class User{
         getEndingURL();
     }
 
-
-
-    public void setStartingPage(String startingPage){
-        this.startingPage=startingPage;
+    public int getClicks() {
+        return clicks;
     }
-    public void setEndingURL(String endingURL) {
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setEndingURL(String endingPage) {
         URLConnection URL = new URLConnection();
-        this.endingURL = URL.makeConnection(endingURL);
+        this.endingURL = URL.makeConnection(endingPage);
     }
     public void setStartingURL(String startingPage){
         URLConnection URL = new URLConnection();
         this.startingURL=URL.makeConnection(startingPage);
-    }
-    public void setEndingPage(String endingPage) {
-        this.endingPage = endingPage;
     }
     public String getStartingURL(){
         return startingURL;
@@ -49,5 +52,9 @@ public class User{
     }
     public String getStartingPage(){
         return startingPage;
+    }
+    @Override
+    public int compareTo(User otherUser){
+        return Integer.compare(getClicks(),otherUser.getClicks());
     }
 }

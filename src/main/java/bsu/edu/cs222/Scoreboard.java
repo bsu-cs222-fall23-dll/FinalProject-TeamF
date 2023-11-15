@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Scoreboard extends User{
+public class Scoreboard {
     List<User> scoreBoard = new ArrayList<>();
-    public void addToRoster(User user){
+
+    public String scoreKeeper(User user){
         scoreBoard.add(user);
-    }
-    public String scoreKeeper(){
         Collections.sort(scoreBoard);
         String scoreboardString = scoreBoard.toString();
         return scoreboardString;
