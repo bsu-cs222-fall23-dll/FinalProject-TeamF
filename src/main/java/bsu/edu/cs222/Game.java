@@ -15,9 +15,6 @@ public class Game {
     static int backButtonCounter = 0;
 
     public static void gameStart(String link, String end, AtomicBoolean hasBackButton, long timerStart){
-
-
-
         if (link.contains(end)){
             timerEnd = System.currentTimeMillis();
             totalTime = timerEnd - timerStart;
@@ -93,15 +90,14 @@ public class Game {
 
 
     public static void hardModeGameStart(String link, String end, long timerStart){
-
-        long timeLimit = timerStart + 30_000;
+        long timeLimit = timerStart + 270_000;
 
         if (System.currentTimeMillis() < timeLimit) {
             if (link.contains(end)) {
                 timerEnd = System.currentTimeMillis();
                 totalTime = timerEnd - timerStart;
                 double seconds = totalTime / 1000.0;
-                JOptionPane.showMessageDialog(null, "Congrats! you did it! \n It took " + counter + " Clicks and " + seconds + " Seconds!");
+                JOptionPane.showMessageDialog(null, "Congrats! you beat hard mode! \n It took " + counter + " Clicks and " + seconds + " Seconds!");
                 System.exit(0);
             }
 
@@ -155,7 +151,7 @@ public class Game {
         }
         else {
             JOptionPane.showMessageDialog(null, "Unfortunately, you have run out of time. Better luck next time!");
-            System.exit(0);
+            Main.mainMenu();
         }
     }
 }

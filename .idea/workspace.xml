@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Add hard mode which implements a time limit that allows one final click before timing out. Side product of this is the fix of the timers">
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Finished the base of scoreboard">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,15 +41,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.Main" />
@@ -64,7 +64,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="connectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScoreboardComparatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
       <extension name="coverage">
         <pattern>
@@ -73,21 +73,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.connectionTest" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardComparatorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cs222 in Final_Project_Finley_Brennan_Hunter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Final_Project_Finley_Brennan_Hunter" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/bsu/edu/cs222" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="hyperLinkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScoreboardComparatorTest.TestScoreboard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
       <extension name="coverage">
         <pattern>
@@ -96,13 +88,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.hyperLinkTest" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardComparatorTest" />
+      <option name="METHOD_NAME" value="TestScoreboard" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScoreboardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Final_Project_Finley_Brennan_Hunter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bsu.edu.cs222.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="hyperLinkTest.hyperLinkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScoreboardTest.scoreKeeperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
       <extension name="coverage">
         <pattern>
@@ -111,8 +119,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.hyperLinkTest" />
-      <option name="METHOD_NAME" value="hyperLinkTest" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardTest" />
+      <option name="METHOD_NAME" value="scoreKeeperTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,10 +129,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.hyperLinkTest.hyperLinkTest" />
-        <item itemvalue="JUnit.cs222 in Final_Project_Finley_Brennan_Hunter" />
-        <item itemvalue="JUnit.hyperLinkTest" />
-        <item itemvalue="JUnit.connectionTest" />
+        <item itemvalue="JUnit.ScoreboardTest" />
+        <item itemvalue="JUnit.ScoreboardTest.scoreKeeperTest" />
+        <item itemvalue="JUnit.ScoreboardComparatorTest" />
+        <item itemvalue="JUnit.ScoreboardComparatorTest.TestScoreboard" />
       </list>
     </recent_temporary>
   </component>
@@ -246,8 +254,69 @@
       <option name="project" value="LOCAL" />
       <updated>1699850824241</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Adjust hard mode to include a 30-second time limit">
+      <option name="closed" value="true" />
+      <created>1699851565899</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699851565899</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Edited GUI but adding more and editing the layout">
+      <created>1699924450792</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1699924450792</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Edited GUI and edited buttons">
+      <created>1699925445818</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1699925445818</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fixed multiple errors">
+      <created>1699925633298</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1699925633298</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fixed multiple more errors">
+      <created>1699925815973</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1699925815973</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Started scoreboard- no output yet.">
+      <created>1700008330490</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1700008330490</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Finished the base of scoreboard">
+      <created>1700011303510</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1700011303510</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="cudsijn" />
@@ -264,6 +333,18 @@
     <MESSAGE value="Add option to use back button or not" />
     <MESSAGE value="Adjust end screen to avoid stating back button presses if not applicable" />
     <MESSAGE value="Add hard mode which implements a time limit that allows one final click before timing out. Side product of this is the fix of the timers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add hard mode which implements a time limit that allows one final click before timing out. Side product of this is the fix of the timers" />
+    <MESSAGE value="Adjust hard mode to include a 30-second time limit" />
+    <MESSAGE value="Edited GUI but adding more and editing the layout" />
+    <MESSAGE value="Edited GUI and edited buttons" />
+    <MESSAGE value="Fixed multiple errors" />
+    <MESSAGE value="Fixed multiple more errors" />
+    <MESSAGE value="Started scoreboard- no output yet." />
+    <MESSAGE value="Finished the base of scoreboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the base of scoreboard" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FinalProject_TeamF$Main.ic" NAME="Main Coverage Results" MODIFIED="1699921672084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bsu.edu.cs222.*</FILTER>
+    </SUITE>
   </component>
 </project>

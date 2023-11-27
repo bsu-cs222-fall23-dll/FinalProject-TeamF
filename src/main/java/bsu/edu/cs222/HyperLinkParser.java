@@ -14,7 +14,6 @@ public class HyperLinkParser extends URLConnection{
 
     public List<String> findHyper(String URL) throws IOException {
         List<String> links = new ArrayList<>();
-        List<String> titles = new ArrayList<>();
         Document doc = Jsoup.connect(URL)
                 .data("query","Java")
                 .userAgent("Mozilla")
@@ -25,15 +24,14 @@ public class HyperLinkParser extends URLConnection{
         for (Element element : elements){
             links.add(element.attr("href"));
         }
-        List<String> combined = addAtrr(links);
-        return combined;
+        return addArr(links);
 
     }
-    private List<String> addAtrr(List<String> links ){
-        Iterator sortLinks = links.iterator();
+    private List<String> addArr(List<String> links ){
+        Iterator<String> sortLinks = links.iterator();
         List <String> combined= new ArrayList<>();
         while (sortLinks.hasNext()){
-            String link = (String) sortLinks.next();
+            String link = sortLinks.next();
             if (link.startsWith("/wiki/")
                     &&!link.startsWith("/wiki/File")
                     &&!link.startsWith("/wiki/Special")
@@ -42,8 +40,18 @@ public class HyperLinkParser extends URLConnection{
                     &&!link.startsWith("/wiki/Help")
                     &&!link.startsWith("/wiki/Wikipedia")
                     &&!link.startsWith("/wiki/Talk")
+                    &&!link.startsWith("/wiki/Main_Page")
+                    &&!link.startsWith("/wiki/Template")
                     &&!link.startsWith("/wiki/Portal")){
                 String title= link.replace("/wiki/","");
+                title= title.replace("_"," ");
+                title= title.replace("#"," ");
+                title= title.replace("%26","&");
+                title= title.replace("%27","'");
+                title= title.replace("%C3%A1","a");
+                title= title.replace("%C3%A9","e");
+                title= title.replace("%E2%80%93","-");
+
                 combined.add(title);
                 combined.add(link);
             }
@@ -51,12 +59,7 @@ public class HyperLinkParser extends URLConnection{
         return combined;
     }
     public void gameEnd(String URL, String endingURL){
-        Boolean target = false;
-        if (URL.equals(endingURL)){
-            target = true;
-        }else{
-            target = false;
-        }
+        boolean target = false;
+        target = URL.equals(endingURL);
     }
-
 }

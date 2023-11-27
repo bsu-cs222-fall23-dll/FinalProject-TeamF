@@ -2,16 +2,31 @@ package bsu.edu.cs222;
 
 
 
-public class User {
+public class User{
     public String startingPage;
     public String endingPage;
     public String startingURL;
     public String endingURL;
+    public int clicks;
+    public int time;
 
-    public void setStartingPage(String startingPage){
-        this.startingPage=startingPage;
+    public User(String start, String end, int clicks, int time) {
+        this.startingPage=start;
+        setStartingURL(startingPage);
+        this.endingPage=end;
+        setEndingURL(endingPage);
+        this.clicks=clicks;
+        this.time=time;
+
     }
-    public void setEndingURL(String endingURL) {
+
+    public void getStartInfo(){
+        getStartingURL();
+        getEndingURL();
+    }
+
+
+    public void setEndingURL(String ending) {
         URLConnection URL = new URLConnection();
         this.endingURL = URL.makeConnection(endingURL);
     }
@@ -19,21 +34,18 @@ public class User {
         URLConnection URL = new URLConnection();
         this.startingURL=URL.makeConnection(startingPage);
     }
-    public void setEndingPage(String endingPage) {
-        this.endingPage = endingPage;
-    }
     public String getStartingURL(){
         return startingURL;
-    }
-
-    public String getEndingPage() {
-        return endingPage;
     }
 
     public String getEndingURL() {
         return endingURL;
     }
-    public String getStartingPage(){
-        return startingPage;
+
+    public String toString(){
+        return this.startingPage+ " "
+                + this.endingPage + " "
+                + this.clicks + " "
+                + this.time + " ";
     }
 }
