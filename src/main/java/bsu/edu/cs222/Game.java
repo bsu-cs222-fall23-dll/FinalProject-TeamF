@@ -15,7 +15,7 @@ public class Game {
     static int backButtonCounter = 0;
 
     public static void gameStart(String link, String end, AtomicBoolean hasBackButton, long timerStart){
-        if (link.contains(end)){
+        if (link.toLowerCase().replaceAll("_", " ").contains(end)){
             timerEnd = System.currentTimeMillis();
             totalTime = timerEnd - timerStart;
             double seconds = totalTime/1000.0;
@@ -93,7 +93,7 @@ public class Game {
         long timeLimit = timerStart + 270_000;
 
         if (System.currentTimeMillis() < timeLimit) {
-            if (link.contains(end)) {
+            if (link.toLowerCase().replaceAll("_", " ").contains(end)) {
                 timerEnd = System.currentTimeMillis();
                 totalTime = timerEnd - timerStart;
                 double seconds = totalTime / 1000.0;
