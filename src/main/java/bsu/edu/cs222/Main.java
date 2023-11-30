@@ -14,7 +14,9 @@ public class Main {
         AtomicBoolean hasBackButton = new AtomicBoolean(false);
 
         JFrame mainMenu = new JFrame();
-        mainMenu.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        mainMenu.setPreferredSize(screenSize);
+        mainMenu.setMinimumSize(new Dimension(screenSize.width/3, screenSize.height/3));
         mainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainMenu.setLayout(new BorderLayout());
 
@@ -57,6 +59,7 @@ public class Main {
         initialize.addActionListener(e -> {
             String start = beginning.getText();
             String end = ending.getText();
+
             if (start.equals("Enter your starting link:") || end.equals("Enter your ending link:")){
                 JOptionPane.showMessageDialog(null, "No input, restarting!");
                 mainMenu.dispose();
@@ -65,7 +68,7 @@ public class Main {
                 String link = "/wiki/" + start;
                 long timerStart = System.currentTimeMillis();
 
-                Game.gameStart(link, end, hasBackButton, timerStart);
+                Game.gameStart(link, end, hasBackButton, timerStart, screenSize);
             }
         });
 
@@ -107,7 +110,7 @@ public class Main {
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (beginning.getText().equals("")){
+                if (beginning.getText().isEmpty()){
                     beginning.setText("Enter your starting link:");
                 }
             }
@@ -123,7 +126,7 @@ public class Main {
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (ending.getText().equals("")){
+                if (ending.getText().isEmpty()){
                     ending.setText("Enter your ending link:");
                 }
             }

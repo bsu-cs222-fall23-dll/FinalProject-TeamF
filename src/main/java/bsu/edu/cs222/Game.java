@@ -14,7 +14,7 @@ public class Game {
     static int counter = 0;
     static int backButtonCounter = 0;
 
-    public static void gameStart(String link, String end, AtomicBoolean hasBackButton, long timerStart){
+    public static void gameStart(String link, String end, AtomicBoolean hasBackButton, long timerStart, Dimension screenSize){
         if (link.toLowerCase().replaceAll("_", " ").contains(end)){
             timerEnd = System.currentTimeMillis();
             totalTime = timerEnd - timerStart;
@@ -29,11 +29,13 @@ public class Game {
         HyperLinkParser info = new HyperLinkParser();
 
         JFrame frame = new JFrame(link + "     Get to " + end);
+        frame.setMinimumSize(new Dimension(screenSize.width/2, screenSize.height/2));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
         JPanel primary = new JPanel();
-        primary.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+        primary.setPreferredSize(screenSize);
+        primary.setMinimumSize(new Dimension(screenSize.width/2, screenSize.height/2));
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(0, 4));
@@ -51,7 +53,7 @@ public class Game {
 
             backButton.addActionListener(e -> {
                 backButtonCounter++;
-                gameStart(lastLink, end, hasBackButton, timerStart);
+                gameStart(lastLink, end, hasBackButton, timerStart, screenSize);
                 frame.dispose();
             });
             buttonPanel.add(backButton);
@@ -64,13 +66,13 @@ public class Game {
 
 
             JButton button = new JButton(hyperlink);
-            Dimension maxButtonSize = new Dimension(200, 35);
+            Dimension maxButtonSize = new Dimension(frame.getWidth()/4, frame.getHeight()/6);
             button.setPreferredSize(maxButtonSize);
 
             button.addActionListener(e -> {
                 counter++;
                 lastLink = link;
-                gameStart(nextLink, end, hasBackButton, timerStart);
+                gameStart(nextLink, end, hasBackButton, timerStart, screenSize);
                 frame.dispose();
             });
             buttonPanel.add(button);
@@ -79,6 +81,7 @@ public class Game {
         JScrollPane scrollPane = new JScrollPane(buttonPanel);
         scrollPane.setAutoscrolls(true);
         scrollPane.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+        scrollPane.setMinimumSize(new Dimension(screenSize.width/2, screenSize.height/2));
         scrollPane.getVerticalScrollBar().setUnitIncrement(20);
 
         primary.add(scrollPane);
