@@ -34,28 +34,42 @@ public class Main {
         horizontalPanel.add(ending);
         horizontalPanel.add(initialize);
 
+
         JPanel verticalPanel = new JPanel();
         verticalPanel.setLayout(new BoxLayout(verticalPanel, BoxLayout.Y_AXIS));
         Button setBackButton = new Button("Back button?");
         Button hardMode = new Button("Hard mode!");
         Button hardModeInfo = new Button("?");
+        Button randomMode = new Button("Random pages");
 
         Dimension buttonSize = new Dimension(300, 30);
         Dimension question = new Dimension(20, 30);
         setBackButton.setMaximumSize(buttonSize);
         hardMode.setMaximumSize(buttonSize);
         hardModeInfo.setMaximumSize(question);
+        randomMode.setMaximumSize(buttonSize);
 
         JPanel hardModePanel = new JPanel();
         hardModePanel.add(hardMode);
         hardModePanel.add(hardModeInfo);
+        hardModePanel.add(randomMode);
 
         verticalPanel.add(Box.createVerticalStrut(10));
         verticalPanel.add(setBackButton);
         verticalPanel.add(hardModePanel);
 
+
         hardModeInfo.addActionListener(e ->
                 JOptionPane.showMessageDialog(null, "Hard mode rules: \n No back button \n 4:30 timer"));
+
+        randomMode.addActionListener(e -> {
+            String start = "Special:Random";
+            String end = "Special:Random";
+                String link = "/wiki/" + start;
+                long timerStart = System.currentTimeMillis();
+
+                Game.gameStart(link, end, hasBackButton, timerStart, screenSize, isHardMode.get());
+        });
 
         initialize.addActionListener(e -> {
             String start = beginning.getText();
@@ -94,8 +108,12 @@ public class Main {
             }
         });
 
+
+
         mainContents.add(horizontalPanel);
         mainContents.add(verticalPanel);
+
+
 
         mainMenu.add(mainContents);
         mainMenu.setExtendedState(JFrame.MAXIMIZED_BOTH);

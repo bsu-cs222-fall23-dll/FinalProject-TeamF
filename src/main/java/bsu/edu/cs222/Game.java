@@ -15,24 +15,25 @@ public class Game {
     static int backButtonCounter = 0;
 
     public static long setTimeLimit(long timerStart) {
-
         return timerStart + 270_000;
     }
 
     public static void checkTimer(String link, String end, AtomicBoolean hasBackButton, long timerStart, Dimension screenSize, boolean isHardMode, long timeLimit) {
         if (System.currentTimeMillis() > timeLimit) {
-            JOptionPane.showMessageDialog(null, "Unfortunately, you have run out of time. Better luck next time!");
+            failedScreen();
             Main.mainMenu();
         } else {
             gameStart(link, end, hasBackButton, timerStart, screenSize, isHardMode);
         }
     }
 
+    private static void failedScreen() {
+        JOptionPane.showMessageDialog(null, "Unfortunately, you have run out of time. Better luck next time!");
+    }
+
     public static void gameStart(String link, String end, AtomicBoolean hasBackButton, long timerStart, Dimension screenSize, boolean isHardMode) {
         endCheck(link, end, timerStart, hasBackButton, isHardMode);
-
         layoutGenerator(link, end, screenSize, hasBackButton, timerStart, isHardMode);
-
     }
 
 
