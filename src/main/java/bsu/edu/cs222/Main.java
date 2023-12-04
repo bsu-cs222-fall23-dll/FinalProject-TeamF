@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Main {
@@ -63,8 +65,25 @@ public class Main {
                 JOptionPane.showMessageDialog(null, "Hard mode rules: \n No back button \n 4:30 timer"));
 
         randomMode.addActionListener(e -> {
+
+            ArrayList<String> randomEnds = new ArrayList<>();
+            randomEnds.add("Dog");
+            randomEnds.add("Apple");
+            randomEnds.add("Star Wars");
+            randomEnds.add("Frank Zappa");
+            randomEnds.add("Queen");
+            randomEnds.add("YouTube");
+            randomEnds.add("Computer Science");
+            randomEnds.add("Indiana");
+            randomEnds.add("Europe");
+            randomEnds.add("Joe Biden");
+            randomEnds.add("Ball State University");
+            randomEnds.add("Gene");
+
+            Random rand = new Random(System.currentTimeMillis());
+
             String start = "Special:Random";
-            String end = "Special:Random";
+            String end = randomEnds.get(rand.nextInt(0, 11));
                 String link = "/wiki/" + start;
                 long timerStart = System.currentTimeMillis();
 
