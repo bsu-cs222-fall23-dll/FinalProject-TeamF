@@ -12,6 +12,7 @@ public class Main {
     }
     public static void mainMenu() {
         AtomicBoolean hasBackButton = new AtomicBoolean(false);
+        AtomicBoolean isHardMode = new AtomicBoolean(false);
 
         JFrame mainMenu = new JFrame();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -68,7 +69,7 @@ public class Main {
                 String link = "/wiki/" + start;
                 long timerStart = System.currentTimeMillis();
 
-                Game.gameStart(link, end, hasBackButton, timerStart, screenSize);
+                Game.gameStart(link, end, hasBackButton, timerStart, screenSize, isHardMode.get());
             }
         });
 
@@ -88,8 +89,8 @@ public class Main {
             }else {
                 String link = "/wiki/" + start;
                 long timerStart = System.currentTimeMillis();
-
-                Game.hardModeGameStart(link, end, timerStart);
+                long timeLimit = Game.setTimeLimit(timerStart);
+                Game.checkTimer(link,end,hasBackButton,timerStart,screenSize,isHardMode.get(), timeLimit);
             }
         });
 
