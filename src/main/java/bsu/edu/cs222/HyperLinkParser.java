@@ -58,6 +58,17 @@ public class HyperLinkParser extends URLConnection{
         }
         return combined;
     }
+
+    public String findFinalRedirect(String URL) {
+        try {
+            URL = Jsoup.connect(URL)
+                    .followRedirects(true)
+                    .execute().url().toExternalForm();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return URL;
+    }
     public void gameEnd(String URL, String endingURL){
         boolean target = false;
         target = URL.equals(endingURL);

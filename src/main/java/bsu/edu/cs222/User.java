@@ -12,9 +12,9 @@ public class User{
 
     public User(String start, String end, int clicks, int time) {
         this.startingPage=start;
-        setStartingURL(startingPage);
+        //setStartingURL(startingPage);
         this.endingPage=end;
-        setEndingURL(endingPage);
+        //setEndingURL(endingPage);
         this.clicks=clicks;
         this.time=time;
 
