@@ -4,8 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Main extends JPanel {
-
     public static void main(String[] args) {
+        miniMain();
+    }
+
+    public static void miniMain() {
         JFrame miniMain = new JFrame("The Wikipedia Game");
         miniMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         miniMain.setSize(400, 300);
@@ -35,9 +38,7 @@ public class Main extends JPanel {
         JButton button2 = new JButton("Help");
         button2.setMaximumSize(new Dimension(200, 30));
         buttonsPanel.add(button2, grid);
-        button2.addActionListener(e -> {
-
-        });
+        button2.addActionListener(e -> Tutorial.tutorialStart());
 
         grid.gridy++;
         JButton button3 = new JButton("Play");
