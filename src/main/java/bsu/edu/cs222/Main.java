@@ -43,7 +43,7 @@ public class Main extends JPanel {
         JButton button3 = new JButton("Play");
         button3.setMaximumSize(new Dimension(100, 50));
         buttonsPanel.add(button3, grid);
-        button3.addActionListener(e -> StartScreen.mainMenu());
+        button3.addActionListener(e -> GameCustomization.mainMenu());
 
         miniMain.getContentPane().setBackground(Color.DARK_GRAY);
         miniMain.add(buttonsPanel, BorderLayout.CENTER);

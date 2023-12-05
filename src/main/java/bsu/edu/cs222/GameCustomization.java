@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class StartScreen {
+public class GameCustomization {
     public static void mainMenu() {
         AtomicBoolean hasBackButton = new AtomicBoolean(false);
         AtomicBoolean isHardMode = new AtomicBoolean(false);

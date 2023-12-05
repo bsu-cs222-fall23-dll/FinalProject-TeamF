@@ -21,7 +21,7 @@ public class Game {
     public static void checkTimer(String link, String end, AtomicBoolean hasBackButton, long timerStart, Dimension screenSize, boolean isHardMode, long timeLimit) {
         if (System.currentTimeMillis() > timeLimit) {
             failedScreen();
-            StartScreen.mainMenu();
+            GameCustomization.mainMenu();
         } else {
             gameStart(link, end, hasBackButton, timerStart, screenSize, isHardMode);
         }
