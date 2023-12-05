@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Finished the base of scoreboard">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/StartScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_4_2023_3_44_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_4_2023_3_44_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" afterDir="false" />
@@ -66,6 +67,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StartScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.StartScreen" />
+      <module name="Final_Project_Finley_Brennan_Hunter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bsu.edu.cs222.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ScoreboardComparatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
       <extension name="coverage">
@@ -77,22 +91,6 @@
       <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
       <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardComparatorTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScoreboardComparatorTest.TestScoreboard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Final_Project_Finley_Brennan_Hunter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bsu.edu.cs222.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardComparatorTest" />
-      <option name="METHOD_NAME" value="TestScoreboard" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -131,10 +129,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.StartScreen" />
         <item itemvalue="JUnit.ScoreboardTest" />
         <item itemvalue="JUnit.ScoreboardTest.scoreKeeperTest" />
         <item itemvalue="JUnit.ScoreboardComparatorTest" />
-        <item itemvalue="JUnit.ScoreboardComparatorTest.TestScoreboard" />
       </list>
     </recent_temporary>
   </component>

@@ -1,0 +1,331 @@
+Index: src/main/java/bsu/edu/cs222/Game.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package bsu.edu.cs222;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.io.IOException;\r\nimport java.util.Iterator;\r\nimport java.util.List;\r\nimport java.util.concurrent.atomic.AtomicBoolean;\r\n\r\npublic class Game {\r\n    static String lastLink;\r\n    static long timerEnd;\r\n    static long totalTime;\r\n    static int counter = 0;\r\n    static int backButtonCounter = 0;\r\n\r\n    public static void gameStart(String link, String end, AtomicBoolean hasBackButton, long timerStart){\r\n        if (link.contains(end)){\r\n            timerEnd = System.currentTimeMillis();\r\n            totalTime = timerEnd - timerStart;\r\n            double seconds = totalTime/1000.0;\r\n            if (hasBackButton.get()) {\r\n                JOptionPane.showMessageDialog(null,\"Congrats! you did it! \\n It took \" + counter + \" Clicks and \" +seconds + \" Seconds! \\n You used \" + backButtonCounter + \" Back button press(es).\");\r\n            }\r\n            else {JOptionPane.showMessageDialog(null,\"Congrats! you did it! \\n It took \" + counter + \" Clicks and \" +seconds + \" Seconds!\");}\r\n            System.exit(0);\r\n        }\r\n\r\n        HyperLinkParser info = new HyperLinkParser();\r\n\r\n        JFrame frame = new JFrame(link + \"     Get to \" + end);\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        frame.setLayout(new BorderLayout());\r\n\r\n        JPanel primary = new JPanel();\r\n        primary.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());\r\n\r\n        JPanel buttonPanel = new JPanel();\r\n        buttonPanel.setLayout(new GridLayout(0, 4));\r\n\r\n        List<String> next;\r\n        try {\r\n            next = info.findHyper(\"https://en.wikipedia.org\" + link);\r\n        } catch (IOException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n\r\n        if (hasBackButton.get()) {\r\n        JButton backButton = new JButton(\"Previous\");\r\n        backButton.setPreferredSize(new Dimension(200,35));\r\n\r\n            backButton.addActionListener(e -> {\r\n                backButtonCounter++;\r\n                gameStart(lastLink, end, hasBackButton, timerStart);\r\n                frame.dispose();\r\n            });\r\n            buttonPanel.add(backButton);\r\n        }\r\n\r\n        Iterator<String> iterator = next.iterator();\r\n        while (iterator.hasNext()) {\r\n            String hyperlink = iterator.next();\r\n            String nextLink = iterator.next();\r\n\r\n\r\n            JButton button = new JButton(hyperlink);\r\n            Dimension maxButtonSize = new Dimension(200, 35);\r\n            button.setPreferredSize(maxButtonSize);\r\n\r\n            button.addActionListener(e -> {\r\n                counter++;\r\n                lastLink = link;\r\n                gameStart(nextLink, end, hasBackButton, timerStart);\r\n                frame.dispose();\r\n            });\r\n            buttonPanel.add(button);\r\n        }\r\n\r\n        JScrollPane scrollPane = new JScrollPane(buttonPanel);\r\n        scrollPane.setAutoscrolls(true);\r\n        scrollPane.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());\r\n        scrollPane.getVerticalScrollBar().setUnitIncrement(20);\r\n\r\n        primary.add(scrollPane);\r\n        frame.add(primary);\r\n        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);\r\n        frame.setVisible(true);\r\n    }\r\n\r\n\r\n\r\n    public static void hardModeGameStart(String link, String end, long timerStart){\r\n        long timeLimit = timerStart + 270_000;\r\n\r\n        if (System.currentTimeMillis() < timeLimit) {\r\n            if (link.contains(end)) {\r\n                timerEnd = System.currentTimeMillis();\r\n                totalTime = timerEnd - timerStart;\r\n                double seconds = totalTime / 1000.0;\r\n                JOptionPane.showMessageDialog(null, \"Congrats! you beat hard mode! \\n It took \" + counter + \" Clicks and \" + seconds + \" Seconds!\");\r\n                System.exit(0);\r\n            }\r\n\r\n            HyperLinkParser info = new HyperLinkParser();\r\n\r\n            JFrame frame = new JFrame(link + \"     Get to \" + end);\r\n            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n            frame.setLayout(new BorderLayout());\r\n\r\n            JPanel primary = new JPanel();\r\n            primary.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());\r\n\r\n            JPanel buttonPanel = new JPanel();\r\n            buttonPanel.setLayout(new GridLayout(0, 4));\r\n\r\n            List<String> next;\r\n            try {\r\n                next = info.findHyper(\"https://en.wikipedia.org\" + link);\r\n            } catch (IOException e) {\r\n                throw new RuntimeException(e);\r\n            }\r\n\r\n            Iterator<String> iterator = next.iterator();\r\n            while (iterator.hasNext()) {\r\n                String hyperlink = iterator.next();\r\n                String nextLink = iterator.next();\r\n\r\n\r\n                JButton button = new JButton(hyperlink);\r\n                Dimension maxButtonSize = new Dimension(200, 35);\r\n                button.setPreferredSize(maxButtonSize);\r\n\r\n                button.addActionListener(e -> {\r\n                    counter++;\r\n                    lastLink = link;\r\n                    hardModeGameStart(nextLink, end, timerStart);\r\n                    frame.dispose();\r\n                });\r\n                buttonPanel.add(button);\r\n            }\r\n\r\n            JScrollPane scrollPane = new JScrollPane(buttonPanel);\r\n            scrollPane.setAutoscrolls(true);\r\n            scrollPane.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());\r\n            scrollPane.getVerticalScrollBar().setUnitIncrement(20);\r\n\r\n            primary.add(scrollPane);\r\n            frame.add(primary);\r\n            frame.setExtendedState(JFrame.MAXIMIZED_BOTH);\r\n            frame.setVisible(true);\r\n        }\r\n        else {\r\n            JOptionPane.showMessageDialog(null, \"Unfortunately, you have run out of time. Better luck next time!\");\r\n            Main.mainMenu();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/bsu/edu/cs222/Game.java b/src/main/java/bsu/edu/cs222/Game.java
+--- a/src/main/java/bsu/edu/cs222/Game.java	(revision b3f3eb6193695ae8dbaae8c32a9cd452b661b206)
++++ b/src/main/java/bsu/edu/cs222/Game.java	(date 1700060191037)
+@@ -15,7 +15,7 @@
+     static int backButtonCounter = 0;
+ 
+     public static void gameStart(String link, String end, AtomicBoolean hasBackButton, long timerStart){
+-        if (link.contains(end)){
++        if (link.toLowerCase().contains(end.toLowerCase())){
+             timerEnd = System.currentTimeMillis();
+             totalTime = timerEnd - timerStart;
+             double seconds = totalTime/1000.0;
+@@ -93,7 +93,7 @@
+         long timeLimit = timerStart + 270_000;
+ 
+         if (System.currentTimeMillis() < timeLimit) {
+-            if (link.contains(end)) {
++            if (link.toLowerCase().contains(end.toLowerCase())) {
+                 timerEnd = System.currentTimeMillis();
+                 totalTime = timerEnd - timerStart;
+                 double seconds = totalTime / 1000.0;
+Index: src/main/java/bsu/edu/cs222/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package bsu.edu.cs222;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.FocusEvent;\r\nimport java.awt.event.FocusListener;\r\nimport java.util.concurrent.atomic.AtomicBoolean;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        mainMenu();\r\n    }\r\n    public static void mainMenu() {\r\n        AtomicBoolean hasBackButton = new AtomicBoolean(false);\r\n\r\n        JFrame mainMenu = new JFrame();\r\n        mainMenu.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());\r\n        mainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        mainMenu.setLayout(new BorderLayout());\r\n\r\n        JPanel mainContents = new JPanel();\r\n        mainContents.setLayout(new GridLayout(2, 1));\r\n\r\n        JPanel horizontalPanel = new JPanel(new FlowLayout());\r\n        Button initialize = new Button(\"Start Game!\");\r\n        TextField beginning = new TextField(20);\r\n        TextField ending = new TextField(20);\r\n        beginning.setText(\"Enter your starting link:\");\r\n        ending.setText(\"Enter your ending link:\");\r\n        horizontalPanel.add(beginning);\r\n        horizontalPanel.add(ending);\r\n        horizontalPanel.add(initialize);\r\n\r\n        JPanel verticalPanel = new JPanel();\r\n        verticalPanel.setLayout(new BoxLayout(verticalPanel, BoxLayout.Y_AXIS));\r\n        Button setBackButton = new Button(\"Back button?\");\r\n        Button hardMode = new Button(\"Hard mode!\");\r\n        Button hardModeInfo = new Button(\"?\");\r\n\r\n        Dimension buttonSize = new Dimension(300, 30);\r\n        Dimension question = new Dimension(20, 30);\r\n        setBackButton.setMaximumSize(buttonSize);\r\n        hardMode.setMaximumSize(buttonSize);\r\n        hardModeInfo.setMaximumSize(question);\r\n\r\n        JPanel hardModePanel = new JPanel();\r\n        hardModePanel.add(hardMode);\r\n        hardModePanel.add(hardModeInfo);\r\n\r\n        verticalPanel.add(Box.createVerticalStrut(10));\r\n        verticalPanel.add(setBackButton);\r\n        verticalPanel.add(hardModePanel);\r\n\r\n        hardModeInfo.addActionListener(e ->\r\n                JOptionPane.showMessageDialog(null, \"Hard mode rules: \\n No back button \\n 4:30 timer\"));\r\n\r\n        initialize.addActionListener(e -> {\r\n            String start = beginning.getText();\r\n            String end = ending.getText();\r\n            if (start.equals(\"Enter your starting link:\") || end.equals(\"Enter your ending link:\")){\r\n                JOptionPane.showMessageDialog(null, \"No input, restarting!\");\r\n                mainMenu.dispose();\r\n                mainMenu();\r\n            }else {\r\n                String link = \"/wiki/\" + start;\r\n                long timerStart = System.currentTimeMillis();\r\n\r\n                Game.gameStart(link, end, hasBackButton, timerStart);\r\n            }\r\n        });\r\n\r\n        setBackButton.addActionListener(e -> {\r\n            hasBackButton.set(true);\r\n            setBackButton.setLabel(\"Back button enabled.\");\r\n        });\r\n\r\n        hardMode.addActionListener(e -> {\r\n\r\n            String start = beginning.getText();\r\n            String end = ending.getText();\r\n            if (start.equals(\"Enter your starting link:\") || end.equals(\"Enter your ending link:\")){\r\n                JOptionPane.showMessageDialog(null, \"No input, restarting!\");\r\n                mainMenu.dispose();\r\n                mainMenu();\r\n            }else {\r\n                String link = \"/wiki/\" + start;\r\n                long timerStart = System.currentTimeMillis();\r\n\r\n                Game.hardModeGameStart(link, end, timerStart);\r\n            }\r\n        });\r\n\r\n        mainContents.add(horizontalPanel);\r\n        mainContents.add(verticalPanel);\r\n\r\n        mainMenu.add(mainContents);\r\n        mainMenu.setExtendedState(JFrame.MAXIMIZED_BOTH);\r\n        mainMenu.setVisible(true);\r\n\r\n        beginning.addFocusListener(new FocusListener() {\r\n            @Override\r\n            public void focusGained(FocusEvent e) {\r\n                if (beginning.getText().equals(\"Enter your starting link:\")) {\r\n                    beginning.setText(\"\");\r\n                }\r\n            }\r\n\r\n            @Override\r\n            public void focusLost(FocusEvent e) {\r\n                if (beginning.getText().equals(\"\")){\r\n                    beginning.setText(\"Enter your starting link:\");\r\n                }\r\n            }\r\n        });\r\n\r\n        ending.addFocusListener(new FocusListener() {\r\n            @Override\r\n            public void focusGained(FocusEvent e) {\r\n                if (ending.getText().equals(\"Enter your ending link:\")) {\r\n                    ending.setText(\"\");\r\n                }\r\n            }\r\n\r\n            @Override\r\n            public void focusLost(FocusEvent e) {\r\n                if (ending.getText().equals(\"\")){\r\n                    ending.setText(\"Enter your ending link:\");\r\n                }\r\n            }\r\n        });\r\n\r\n    }\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/bsu/edu/cs222/Main.java b/src/main/java/bsu/edu/cs222/Main.java
+--- a/src/main/java/bsu/edu/cs222/Main.java	(revision b3f3eb6193695ae8dbaae8c32a9cd452b661b206)
++++ b/src/main/java/bsu/edu/cs222/Main.java	(date 1700060191080)
+@@ -21,7 +21,7 @@
+         JPanel mainContents = new JPanel();
+         mainContents.setLayout(new GridLayout(2, 1));
+ 
+-        JPanel horizontalPanel = new JPanel(new FlowLayout());
++        JPanel horizontalPanel = new JPanel();
+         Button initialize = new Button("Start Game!");
+         TextField beginning = new TextField(20);
+         TextField ending = new TextField(20);
+@@ -31,9 +31,26 @@
+         horizontalPanel.add(ending);
+         horizontalPanel.add(initialize);
+ 
+-        JPanel verticalPanel = new JPanel();
+-        verticalPanel.setLayout(new BoxLayout(verticalPanel, BoxLayout.Y_AXIS));
++        JPanel easyPanel = new JPanel();
++        easyPanel.setLayout(new BoxLayout(easyPanel, BoxLayout.Y_AXIS));
+         Button setBackButton = new Button("Back button?");
++        Button easyMode = new Button("Easy Mode!");
++        Button easyModeInfo = new Button("?");
++
++        Dimension easyButtonSize = new Dimension(300, 30);
++        Dimension easyQuestion = new Dimension(20, 30);
++        easyMode.setMaximumSize(easyButtonSize);
++        easyModeInfo.setMaximumSize(easyQuestion);
++
++        JPanel easyModePanel = new JPanel();
++        easyModePanel.add(setBackButton);
++        easyModePanel.add(easyMode);
++        easyModePanel.add(easyModeInfo);
++
++        easyPanel.add(Box.createVerticalStrut(10));
++
++        JPanel hardPanel = new JPanel();
++        hardPanel.setLayout(new BoxLayout(hardPanel, BoxLayout.Y_AXIS));
+         Button hardMode = new Button("Hard mode!");
+         Button hardModeInfo = new Button("?");
+ 
+@@ -43,13 +60,11 @@
+         hardMode.setMaximumSize(buttonSize);
+         hardModeInfo.setMaximumSize(question);
+ 
+-        JPanel hardModePanel = new JPanel();
+-        hardModePanel.add(hardMode);
+-        hardModePanel.add(hardModeInfo);
+-
+-        verticalPanel.add(Box.createVerticalStrut(10));
+-        verticalPanel.add(setBackButton);
+-        verticalPanel.add(hardModePanel);
++        JPanel centered = new JPanel();
++        centered.setLayout(new BoxLayout(centered, BoxLayout.Y_AXIS));
++        centered.add(easyModePanel);
++        centered.add(hardMode);
++        centered.add(hardModeInfo);
+ 
+         hardModeInfo.addActionListener(e ->
+                 JOptionPane.showMessageDialog(null, "Hard mode rules: \n No back button \n 4:30 timer"));
+@@ -75,7 +90,6 @@
+         });
+ 
+         hardMode.addActionListener(e -> {
+-
+             String start = beginning.getText();
+             String end = ending.getText();
+             if (start.equals("Enter your starting link:") || end.equals("Enter your ending link:")){
+@@ -91,7 +105,7 @@
+         });
+ 
+         mainContents.add(horizontalPanel);
+-        mainContents.add(verticalPanel);
++        mainContents.add(centered);
+ 
+         mainMenu.add(mainContents);
+         mainMenu.setExtendedState(JFrame.MAXIMIZED_BOTH);
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_11_13_2023_7_01_PM_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_11_13_2023_7_01_PM_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_11_13_2023_7_01_PM_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_11_13_2023_7_01_PM_[Changes]/shelved.patch	(revision b3f3eb6193695ae8dbaae8c32a9cd452b661b206)
++++ /dev/null	(revision b3f3eb6193695ae8dbaae8c32a9cd452b661b206)
+@@ -1,169 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"33ee95eb-0e09-4c7f-9781-195264da447c\" name=\"Changes\" comment=\"Add back button usage display to end of game pop-up\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_24_2023_12_26_PM_[Changes]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_26_2023_12_44_PM_[Changes]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_26_2023_12_44_PM__Changes_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PREVIOUS_COMMIT_AUTHORS\">\r\n      <list>\r\n        <option value=\"Hunter Johns &lt;hunter.johns@bsu.edu&gt;\" />\r\n        <option value=\"Hunter-Johns\" />\r\n      </list>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2WxvAJtS66YWpoL92YDJuxO3CCO\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"bsu.edu.cs222.Main\" />\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"bsu.edu.cs222.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"connectionTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"bsu.edu.cs222.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"bsu.edu.cs222\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"bsu.edu.cs222.connectionTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"cs222 in Final_Project_Finley_Brennan_Hunter\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <option name=\"TEST_OBJECT\" value=\"directory\" />\r\n      <dir value=\"$PROJECT_DIR$/src/test/java/bsu/edu/cs222\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"hyperLinkTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"bsu.edu.cs222.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"bsu.edu.cs222\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"bsu.edu.cs222.hyperLinkTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"hyperLinkTest.hyperLinkTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"bsu.edu.cs222.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"bsu.edu.cs222\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"bsu.edu.cs222.hyperLinkTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"hyperLinkTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"JUnit.hyperLinkTest.hyperLinkTest\" />\r\n        <item itemvalue=\"JUnit.cs222 in Final_Project_Finley_Brennan_Hunter\" />\r\n        <item itemvalue=\"JUnit.hyperLinkTest\" />\r\n        <item itemvalue=\"JUnit.connectionTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"33ee95eb-0e09-4c7f-9781-195264da447c\" name=\"Changes\" comment=\"\" />\r\n      <created>1697686902031</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1697686902031</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"cudsijn\">\r\n      <created>1697687002828</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1697687002828</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Commit 1 Added Jsoup and converted to Maven\">\r\n      <created>1697687134845</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1697687134845</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test\">\r\n      <created>1697690638475</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1697690638475</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Remove duplicate Junit dependencies\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698164744061</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698164744061</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Implement scroll functionality.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698772103684</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698772103684</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Implement scroll functionality.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698772157346</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698772157346</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Adjust scroll functionality to be independent of screen size\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698772485931</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698772485931</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Add back button functionality\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698773665742</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698773665742</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Add back button usage display to end of game pop-up\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698773821553</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698773821553</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Adjust end screen message, adjust scroll speed\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698941923814</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698941923814</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Adjust UI, mitigate warnings in compiler\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698942805223</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698942805223</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"12\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"cudsijn\" />\r\n    <MESSAGE value=\"Commit 1 Added Jsoup and converted to Maven\" />\r\n    <MESSAGE value=\"Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test\" />\r\n    <MESSAGE value=\"Remove duplicate Junit dependency\" />\r\n    <MESSAGE value=\"Remove duplicate Junit dependencies\" />\r\n    <MESSAGE value=\"Implement scroll functionality.\" />\r\n    <MESSAGE value=\"Adjust scroll functionality to be independent of screen size\" />\r\n    <MESSAGE value=\"Add back button functionality\" />\r\n    <MESSAGE value=\"Add back button usage display to end of game pop-up\" />\r\n    <MESSAGE value=\"Adjust end screen message, adjust scroll speed\" />\r\n    <MESSAGE value=\"Adjust UI, mitigate warnings in compiler\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Adjust UI, mitigate warnings in compiler\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 11256efa51a10672a468cfe252bab1f6e1f4ef17)
+-+++ b/.idea/workspace.xml	(date 1699920059958)
+-@@ -4,13 +4,11 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Add back button usage display to end of game pop-up">
+--      <change afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_24_2023_12_26_PM_[Changes]/shelved.patch" beforeDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_26_2023_12_44_PM_[Changes]/shelved.patch" beforeDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_26_2023_12_44_PM__Changes_.xml" beforeDir="false" />
+-+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Added a main menu and separated class">
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -32,6 +30,7 @@
+-       </list>
+-     </option>
+-     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-+    <option name="UPDATE_TYPE" value="REBASE" />
+-   </component>
+-   <component name="MarkdownSettingsMigration">
+-     <option name="stateVersion" value="1" />
+-@@ -236,7 +235,14 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1698942805223</updated>
+-     </task>
+--    <option name="localTasksCounter" value="12" />
+-+    <task id="LOCAL-00012" summary="Added a main menu and separated class">
+-+      <created>1699226307384</created>
+-+      <option name="number" value="00012" />
+-+      <option name="presentableId" value="LOCAL-00012" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1699226307384</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="13" />
+-     <servers />
+-   </component>
+-   <component name="VcsManagerConfiguration">
+-@@ -251,6 +257,7 @@
+-     <MESSAGE value="Add back button usage display to end of game pop-up" />
+-     <MESSAGE value="Adjust end screen message, adjust scroll speed" />
+-     <MESSAGE value="Adjust UI, mitigate warnings in compiler" />
+--    <option name="LAST_COMMIT_MESSAGE" value="Adjust UI, mitigate warnings in compiler" />
+-+    <MESSAGE value="Added a main menu and separated class" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="Added a main menu and separated class" />
+-   </component>
+- </project>
+-\ No newline at end of file
+-Index: src/main/java/bsu/edu/cs222/User.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package bsu.edu.cs222;\r\n\r\n\r\n\r\npublic class User {\r\n    public String startingPage;\r\n    public String endingPage;\r\n    public String startingURL;\r\n    public String endingURL;\r\n\r\n    public void setStartingPage(String startingPage){\r\n        this.startingPage=startingPage;\r\n    }\r\n    public void setEndingURL(String endingURL) {\r\n        URLConnection URL = new URLConnection();\r\n        this.endingURL = URL.makeConnection(endingURL);\r\n    }\r\n    public void setStartingURL(String startingPage){\r\n        URLConnection URL = new URLConnection();\r\n        this.startingURL=URL.makeConnection(startingPage);\r\n    }\r\n    public void setEndingPage(String endingPage) {\r\n        this.endingPage = endingPage;\r\n    }\r\n    public String getStartingURL(){\r\n        return startingURL;\r\n    }\r\n\r\n    public String getEndingPage() {\r\n        return endingPage;\r\n    }\r\n\r\n    public String getEndingURL() {\r\n        return endingURL;\r\n    }\r\n    public String getStartingPage(){\r\n        return startingPage;\r\n    }\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/bsu/edu/cs222/User.java b/src/main/java/bsu/edu/cs222/User.java
+---- a/src/main/java/bsu/edu/cs222/User.java	(revision 11256efa51a10672a468cfe252bab1f6e1f4ef17)
+-+++ b/src/main/java/bsu/edu/cs222/User.java	(date 1699569774606)
+-@@ -2,12 +2,26 @@
+- 
+- 
+- 
+--public class User {
+-+public class User{
+-     public String startingPage;
+-     public String endingPage;
+-     public String startingURL;
+-     public String endingURL;
+- 
+-+    public User(String start, String end) {
+-+        this.setStartingPage(start);
+-+        this.setEndingPage(end);
+-+        setStartingURL(startingPage);
+-+        setEndingURL(endingPage);
+-+    }
+-+
+-+    public void getStartInfo(){
+-+        getStartingURL();
+-+        getEndingURL();
+-+    }
+-+
+-+
+-+
+-     public void setStartingPage(String startingPage){
+-         this.startingPage=startingPage;
+-     }
+-Index: src/main/java/bsu/edu/cs222/Game.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package bsu.edu.cs222;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.io.IOException;\r\nimport java.util.Iterator;\r\nimport java.util.List;\r\n\r\npublic class Game {\r\n    static long timerStart;\r\n    static String lastLink;\r\n    static long timerEnd;\r\n    static long totalTime;\r\n    static int counter = 0;\r\n    static int backButtonCounter = 0;\r\n\r\n    public static void gameStart(String link, String end){\r\n\r\n        if (link.contains(end)){\r\n            timerEnd = System.currentTimeMillis();\r\n            totalTime = timerEnd - timerStart;\r\n            double seconds = totalTime/1000.0;\r\n            JOptionPane.showMessageDialog(null,\"Congrats! you did it! \\n It took \" + counter + \" Clicks and \" +seconds + \" Seconds! \\n You used \" + backButtonCounter + \" Back button press(es).\");\r\n            System.exit(0);\r\n        }\r\n\r\n        HyperLinkParser info = new HyperLinkParser();\r\n\r\n        JFrame frame = new JFrame(link + \"     Get to \" + end);\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        frame.setLayout(new BorderLayout());\r\n\r\n        JPanel primary = new JPanel();\r\n        primary.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());\r\n\r\n        JPanel buttonPanel = new JPanel();\r\n        buttonPanel.setLayout(new GridLayout(0, 4));\r\n\r\n        List<String> next;\r\n        try {\r\n            next = info.findHyper(\"https://en.wikipedia.org\" + link);\r\n        } catch (IOException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n\r\n        JButton backButton = new JButton(\"Previous\");\r\n        backButton.setPreferredSize(new Dimension(200,35));\r\n\r\n        backButton.addActionListener(e -> {\r\n            backButtonCounter++;\r\n            gameStart(lastLink, end);\r\n            frame.dispose();\r\n        });\r\n        buttonPanel.add(backButton);\r\n\r\n        Iterator<String> iterator = next.iterator();\r\n        while (iterator.hasNext()) {\r\n            String hyperlink = iterator.next();\r\n            String nextLink = iterator.next();\r\n\r\n\r\n            JButton button = new JButton(hyperlink);\r\n            Dimension maxButtonSize = new Dimension(200, 35);\r\n            button.setPreferredSize(maxButtonSize);\r\n\r\n            button.addActionListener(e -> {\r\n                counter++;\r\n                lastLink = link;\r\n                gameStart(nextLink, end);\r\n                frame.dispose();\r\n            });\r\n            buttonPanel.add(button);\r\n        }\r\n\r\n        JScrollPane scrollPane = new JScrollPane(buttonPanel);\r\n        scrollPane.setAutoscrolls(true);\r\n        scrollPane.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());\r\n        scrollPane.getVerticalScrollBar().setUnitIncrement(20);\r\n\r\n        primary.add(scrollPane);\r\n        frame.add(primary);\r\n        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);\r\n        frame.setVisible(true);\r\n    }\r\n}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/bsu/edu/cs222/Game.java b/src/main/java/bsu/edu/cs222/Game.java
+---- a/src/main/java/bsu/edu/cs222/Game.java	(revision 11256efa51a10672a468cfe252bab1f6e1f4ef17)
+-+++ b/src/main/java/bsu/edu/cs222/Game.java	(date 1699569774594)
+-@@ -14,13 +14,17 @@
+-     static int counter = 0;
+-     static int backButtonCounter = 0;
+- 
+--    public static void gameStart(String link, String end){
+-+    public static void gameStart(String start, String end){
+-+        User path = new User(start, end);
+-+    }
+-+
+-+    public static void gameContinue(String link, String end) {
+- 
+--        if (link.contains(end)){
+-+        if (link.contains(end)) {
+-             timerEnd = System.currentTimeMillis();
+-             totalTime = timerEnd - timerStart;
+--            double seconds = totalTime/1000.0;
+--            JOptionPane.showMessageDialog(null,"Congrats! you did it! \n It took " + counter + " Clicks and " +seconds + " Seconds! \n You used " + backButtonCounter + " Back button press(es).");
+-+            double seconds = totalTime / 1000.0;
+-+            JOptionPane.showMessageDialog(null, "Congrats! you did it! \n It took " + counter + " Clicks and " + seconds + " Seconds! \n You used " + backButtonCounter + " Back button press(es).");
+-             System.exit(0);
+-         }
+- 
+-@@ -44,7 +48,7 @@
+-         }
+- 
+-         JButton backButton = new JButton("Previous");
+--        backButton.setPreferredSize(new Dimension(200,35));
+-+        backButton.setPreferredSize(new Dimension(200, 35));
+- 
+-         backButton.addActionListener(e -> {
+-             backButtonCounter++;
+-Index: src/main/java/bsu/edu/cs222/Main.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package bsu.edu.cs222;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        Game begin = new Game();\r\n\r\n        JFrame mainMenu = new JFrame();\r\n        mainMenu.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());\r\n        mainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        mainMenu.setLayout(new BorderLayout());\r\n\r\n        JPanel mainContents = new JPanel();\r\n        mainContents.setLayout(new GridBagLayout());\r\n        GridBagConstraints organizer = new GridBagConstraints();\r\n        organizer.gridwidth = GridBagConstraints.REMAINDER;\r\n        organizer.fill = GridBagConstraints.HORIZONTAL;\r\n\r\n        Button initialize = new Button(\"Start Game!\");\r\n\r\n        TextField beginning = new TextField(20);\r\n        TextField ending = new TextField(20);\r\n        mainContents.add(beginning, organizer);\r\n        mainContents.add(ending, organizer);\r\n        mainContents.add(initialize, organizer);\r\n\r\n        initialize.addActionListener(e -> {\r\n            String start = beginning.getText();\r\n            String end = ending.getText();\r\n            String link = \"/wiki/\" + start;\r\n\r\n            begin.gameStart(link, end);\r\n        });\r\n\r\n        mainMenu.add(mainContents);\r\n        mainMenu.setExtendedState(JFrame.MAXIMIZED_BOTH);\r\n        mainMenu.setVisible(true);\r\n    }\r\n}\r\n\r\n\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/src/main/java/bsu/edu/cs222/Main.java b/src/main/java/bsu/edu/cs222/Main.java
+---- a/src/main/java/bsu/edu/cs222/Main.java	(revision 11256efa51a10672a468cfe252bab1f6e1f4ef17)
+-+++ b/src/main/java/bsu/edu/cs222/Main.java	(date 1699569774582)
+-@@ -29,10 +29,15 @@
+-         initialize.addActionListener(e -> {
+-             String start = beginning.getText();
+-             String end = ending.getText();
+--            String link = "/wiki/" + start;
+--
+--            begin.gameStart(link, end);
+-+            begin.gameStart(start, end);
+-+            begin.gameContinue(start, end);
+-         });
+-+
+-+        //JPanel difficulty = new JPanel();
+-+        //Button easy = new Button("Start Game!");
+-+        //Button medium = new Button("Start Game!");
+-+        //Button hard = new Button("Start Game!");
+-+        //difficulty.add(easy, medium, hard);
+- 
+-         mainMenu.add(mainContents);
+-         mainMenu.setExtendedState(JFrame.MAXIMIZED_BOTH);
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_11_13_2023_7_01_PM__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_11_13_2023_7_01_PM__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_11_13_2023_7_01_PM__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_11_13_2023_7_01_PM__Changes_.xml	(revision b3f3eb6193695ae8dbaae8c32a9cd452b661b206)
++++ /dev/null	(revision b3f3eb6193695ae8dbaae8c32a9cd452b661b206)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_11_13_2023_7_01_PM_[Changes]" date="1699920074834" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_13_2023_7_01_PM_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 11/13/2023 7:01 PM [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"33ee95eb-0e09-4c7f-9781-195264da447c\" name=\"Changes\" comment=\"Finished the base of scoreboard\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PREVIOUS_COMMIT_AUTHORS\">\r\n      <list>\r\n        <option value=\"Hunter Johns &lt;hunter.johns@bsu.edu&gt;\" />\r\n        <option value=\"Hunter-Johns\" />\r\n      </list>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2WxvAJtS66YWpoL92YDJuxO3CCO\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"bsu.edu.cs222.Main\" />\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"bsu.edu.cs222.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ScoreboardComparatorTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"bsu.edu.cs222.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"bsu.edu.cs222\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"bsu.edu.cs222.ScoreboardComparatorTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ScoreboardComparatorTest.TestScoreboard\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"bsu.edu.cs222.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"bsu.edu.cs222\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"bsu.edu.cs222.ScoreboardComparatorTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"TestScoreboard\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ScoreboardTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"bsu.edu.cs222.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"bsu.edu.cs222\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"bsu.edu.cs222.ScoreboardTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ScoreboardTest.scoreKeeperTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Final_Project_Finley_Brennan_Hunter\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"bsu.edu.cs222.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"bsu.edu.cs222\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"bsu.edu.cs222.ScoreboardTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"scoreKeeperTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"JUnit.ScoreboardTest\" />\r\n        <item itemvalue=\"JUnit.ScoreboardTest.scoreKeeperTest\" />\r\n        <item itemvalue=\"JUnit.ScoreboardComparatorTest\" />\r\n        <item itemvalue=\"JUnit.ScoreboardComparatorTest.TestScoreboard\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"33ee95eb-0e09-4c7f-9781-195264da447c\" name=\"Changes\" comment=\"\" />\r\n      <created>1697686902031</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1697686902031</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"cudsijn\">\r\n      <created>1697687002828</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1697687002828</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Commit 1 Added Jsoup and converted to Maven\">\r\n      <created>1697687134845</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1697687134845</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test\">\r\n      <created>1697690638475</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1697690638475</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Remove duplicate Junit dependencies\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698164744061</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698164744061</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Implement scroll functionality.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698772103684</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698772103684</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Implement scroll functionality.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698772157346</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698772157346</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Adjust scroll functionality to be independent of screen size\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698772485931</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698772485931</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Add back button functionality\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698773665742</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698773665742</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Add back button usage display to end of game pop-up\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698773821553</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698773821553</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Adjust end screen message, adjust scroll speed\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698941923814</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698941923814</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Adjust UI, mitigate warnings in compiler\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1698942805223</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1698942805223</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Add option to use back button or not\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1699848683060</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1699848683060</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Adjust end screen to avoid stating back button presses if not applicable\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1699848831536</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1699848831536</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Add hard mode which implements a time limit that allows one final click before timing out. Side product of this is the fix of the timers\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1699850824241</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1699850824241</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Adjust hard mode to include a 30-second time limit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1699851565899</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1699851565899</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Edited GUI but adding more and editing the layout\">\r\n      <created>1699924450792</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1699924450792</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Edited GUI and edited buttons\">\r\n      <created>1699925445818</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1699925445818</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"Fixed multiple errors\">\r\n      <created>1699925633298</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1699925633298</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"Fixed multiple more errors\">\r\n      <created>1699925815973</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1699925815973</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"Started scoreboard- no output yet.\">\r\n      <created>1700008330490</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700008330490</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"Finished the base of scoreboard\">\r\n      <created>1700011303510</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700011303510</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"22\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"cudsijn\" />\r\n    <MESSAGE value=\"Commit 1 Added Jsoup and converted to Maven\" />\r\n    <MESSAGE value=\"Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test\" />\r\n    <MESSAGE value=\"Remove duplicate Junit dependency\" />\r\n    <MESSAGE value=\"Remove duplicate Junit dependencies\" />\r\n    <MESSAGE value=\"Implement scroll functionality.\" />\r\n    <MESSAGE value=\"Adjust scroll functionality to be independent of screen size\" />\r\n    <MESSAGE value=\"Add back button functionality\" />\r\n    <MESSAGE value=\"Add back button usage display to end of game pop-up\" />\r\n    <MESSAGE value=\"Adjust end screen message, adjust scroll speed\" />\r\n    <MESSAGE value=\"Adjust UI, mitigate warnings in compiler\" />\r\n    <MESSAGE value=\"Add option to use back button or not\" />\r\n    <MESSAGE value=\"Adjust end screen to avoid stating back button presses if not applicable\" />\r\n    <MESSAGE value=\"Add hard mode which implements a time limit that allows one final click before timing out. Side product of this is the fix of the timers\" />\r\n    <MESSAGE value=\"Adjust hard mode to include a 30-second time limit\" />\r\n    <MESSAGE value=\"Edited GUI but adding more and editing the layout\" />\r\n    <MESSAGE value=\"Edited GUI and edited buttons\" />\r\n    <MESSAGE value=\"Fixed multiple errors\" />\r\n    <MESSAGE value=\"Fixed multiple more errors\" />\r\n    <MESSAGE value=\"Started scoreboard- no output yet.\" />\r\n    <MESSAGE value=\"Finished the base of scoreboard\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Finished the base of scoreboard\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/FinalProject_TeamF$Main.ic\" NAME=\"Main Coverage Results\" MODIFIED=\"1699921672084\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>bsu.edu.cs222.*</FILTER>\r\n    </SUITE>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision b3f3eb6193695ae8dbaae8c32a9cd452b661b206)
++++ b/.idea/workspace.xml	(date 1700094366476)
+@@ -4,9 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Finished the base of scoreboard">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/HyperLinkParser.java" afterDir="false" />
++    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Fixed start button so does not start with no input">
++      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Main.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -28,6 +28,7 @@
+       </list>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++    <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
