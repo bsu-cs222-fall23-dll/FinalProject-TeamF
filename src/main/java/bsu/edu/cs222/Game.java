@@ -38,12 +38,16 @@ public class Game {
 
 
     private static void endCheck(String link, String end, long timerStart, AtomicBoolean hasBackButton, boolean isHardMode) {
-        if (link.toLowerCase().replaceAll("_", " ").contains(end)) {
+        if (stringFormat(link).contains(stringFormat(end))) {
             timerEnd = System.currentTimeMillis();
             totalTime = timerEnd - timerStart;
             double seconds = totalTime / 1000.0;
             gameEnd(hasBackButton, seconds, isHardMode);
         }
+    }
+
+    private static String stringFormat(String string){
+        return string.toLowerCase().replaceAll("_", " ");
     }
 
 
