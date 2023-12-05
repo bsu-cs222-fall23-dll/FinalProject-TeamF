@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Finished the base of scoreboard">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_4_2023_9_15_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_4_2023_9_15_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" afterDir="false" />
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Completed random mode and fixed minor variable names">
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/GameCustomization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/GameCustomization.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/HyperLinkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/HyperLinkTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -306,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700011303510</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Completed random mode and fixed minor variable names">
+      <created>1701812357412</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1701812357412</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -342,7 +345,8 @@
     <MESSAGE value="Fixed multiple more errors" />
     <MESSAGE value="Started scoreboard- no output yet." />
     <MESSAGE value="Finished the base of scoreboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished the base of scoreboard" />
+    <MESSAGE value="Completed random mode and fixed minor variable names" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed random mode and fixed minor variable names" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FinalProject_TeamF$Main.ic" NAME="Main Coverage Results" MODIFIED="1699921672084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

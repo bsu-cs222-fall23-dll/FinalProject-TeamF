@@ -69,8 +69,4 @@ public class HyperLinkParser extends URLConnection{
         }
         return URL;
     }
-    public void gameEnd(String URL, String endingURL){
-        boolean target = false;
-        target = URL.equals(endingURL);
-    }
 }

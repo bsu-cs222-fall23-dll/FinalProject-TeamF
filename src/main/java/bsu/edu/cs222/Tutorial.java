@@ -42,7 +42,7 @@ public class Tutorial {
 
             button.addActionListener(e -> {
                 if (nextLink.contains("Scotland")){
-                    JOptionPane.showMessageDialog(null, "While this is a smaller scale version of the game \n its merely an example of how to navigate and explain th basics \n In the real game you will select your own link, choose new settings, and customize your experience!");
+                    JOptionPane.showMessageDialog(null, "While this is a smaller scale version of the game \n its merely an example of how to navigate and explain the basics \n In the real game, you can select your own link, choose new settings, and customize your experience!");
                     JOptionPane.showMessageDialog(null,"Congratulations! You beat the tutorial. \n Explore the other settings and features to build your skill and learn about the game! \n Returning you to the main menu!");
                     frame.setVisible(false);
                     MiniMain.miniMain();

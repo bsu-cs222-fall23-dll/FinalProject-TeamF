@@ -4,16 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GameCustomization {
     public static void mainMenu() {
         AtomicBoolean hasBackButton = new AtomicBoolean(false);
         AtomicBoolean isHardMode = new AtomicBoolean(false);
-
-        Random rand = new Random(System.currentTimeMillis());
 
         JFrame mainMenu = new JFrame();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
