@@ -13,21 +13,6 @@ public class GameCustomization {
         AtomicBoolean hasBackButton = new AtomicBoolean(false);
         AtomicBoolean isHardMode = new AtomicBoolean(false);
 
-        ArrayList<String> randomEnds = new ArrayList<>();
-        randomEnds.add("Dog");
-        randomEnds.add("Apple");
-        randomEnds.add("Star Wars");
-        randomEnds.add("Frank_Zappa");
-        randomEnds.add("Queen");
-        randomEnds.add("YouTube");
-        randomEnds.add("Computer_Science");
-        randomEnds.add("Indiana");
-        randomEnds.add("Europe");
-        randomEnds.add("Joe_Biden");
-        randomEnds.add("Ball_State_University");
-        randomEnds.add("Gene");
-
-
         Random rand = new Random(System.currentTimeMillis());
 
         JFrame mainMenu = new JFrame();
@@ -80,12 +65,18 @@ public class GameCustomization {
 
         randomMode.addActionListener(e -> {
             String start = "Special:Random";
-            String end = randomEnds.get(rand.nextInt(0, 11));
-            String link = "/wiki/" + start;
+            String end = "Special:Random";
+            String startLink = "https://en.wikipedia.org/wiki/" + start;
+            String endLink = "https://en.wikipedia.org/wiki/" + end;
+            HyperLinkParser hyperLinkParser = new HyperLinkParser();
+            startLink = hyperLinkParser.findFinalRedirect(startLink);
+            endLink = hyperLinkParser.findFinalRedirect(endLink);
+            startLink =  startLink.replace("https://en.wikipedia.org","");
+            endLink =  endLink.replace("https://en.wikipedia.org","");
 
             long timerStart = System.currentTimeMillis();
 
-            Game.gameStart(link, end, hasBackButton, timerStart, screenSize, isHardMode.get());
+            Game.gameStart(startLink, endLink, hasBackButton, timerStart, screenSize, isHardMode.get());
         });
 
         initialize.addActionListener(e -> {

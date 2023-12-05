@@ -16,5 +16,10 @@ public class HyperLinkTest extends HyperLinkParser{
         }
 
     }
+    @Test
+    public void finalRedirectTest(){
+        String finalURL = findFinalRedirect("https://en.wikipedia.org/wiki/Special:Random");
+        System.out.println(finalURL);
+    }
 
 }

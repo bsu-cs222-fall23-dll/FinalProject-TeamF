@@ -63,10 +63,13 @@ public class Game {
         System.exit(0);
     }
 
-    private static void layoutGenerator(String link, String end, Dimension screenSize, AtomicBoolean hasBackButton, long timerStart, boolean isHardMode) {
+    private static void layoutGenerator(String startLink, String endLink, Dimension screenSize, AtomicBoolean hasBackButton, long timerStart, boolean isHardMode) {
         HyperLinkParser info = new HyperLinkParser();
-
-        JFrame frame = new JFrame(link + "     Get to " + end);
+        String start = startLink.replace("/wiki/", "");
+        start = start.replace("_", " ");
+        String end = endLink.replace("/wiki/", "");
+        end = end.replace("_", " ");
+        JFrame frame = new JFrame(start + "     Get to " + end);
         frame.setMinimumSize(new Dimension(screenSize.width / 2, screenSize.height / 2));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
@@ -80,7 +83,7 @@ public class Game {
 
         List<String> next;
         try {
-            next = info.findHyper("https://en.wikipedia.org" + link);
+            next = info.findHyper("https://en.wikipedia.org" + startLink);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -100,12 +103,12 @@ public class Game {
 
             button.addActionListener(e -> {
                 counter++;
-                lastLink = link;
+                lastLink = startLink;
                 if (isHardMode) {
                     long timeLimit = setTimeLimit(timerStart);
-                    checkTimer(nextLink, end, hasBackButton, timerStart, screenSize, true, timeLimit);
+                    checkTimer(nextLink, endLink, hasBackButton, timerStart, screenSize, true, timeLimit);
                 } else {
-                    gameStart(nextLink, end, hasBackButton, timerStart, screenSize, false);
+                    gameStart(nextLink, endLink, hasBackButton, timerStart, screenSize, false);
                 }
                 frame.dispose();
             });
