@@ -27,6 +27,7 @@ public class GameCustomization {
         randomEnds.add("Ball_State_University");
         randomEnds.add("Gene");
 
+
         Random rand = new Random(System.currentTimeMillis());
 
         JFrame mainMenu = new JFrame();

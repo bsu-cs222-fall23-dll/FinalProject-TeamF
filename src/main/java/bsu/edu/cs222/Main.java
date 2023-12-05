@@ -11,12 +11,12 @@ public class Main extends JPanel {
     public static void miniMain() {
         JFrame miniMain = new JFrame("The Wikipedia Game");
         miniMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        miniMain.setSize(400, 300);
+        miniMain.setSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width/2, Toolkit.getDefaultToolkit().getScreenSize().height/2 ));
         miniMain.setLayout(new BorderLayout());
 
         JLabel titleLabel = new JLabel("WIKIPEDIA GAME");
-        titleLabel.setFont(new Font("Linux Libertine", Font.PLAIN, 23));
-        titleLabel.setForeground(Color.BLUE);
+        titleLabel.setFont(new Font("Gabriola", Font.PLAIN, 40));
+        titleLabel.setForeground(new Color(51, 204, 255));
         titleLabel.setHorizontalAlignment(JLabel.CENTER);
 
         miniMain.add(titleLabel, BorderLayout.NORTH);
@@ -38,13 +38,19 @@ public class Main extends JPanel {
         JButton button2 = new JButton("Help");
         button2.setMaximumSize(new Dimension(200, 30));
         buttonsPanel.add(button2, grid);
-        button2.addActionListener(e -> Tutorial.tutorialStart());
+        button2.addActionListener(e -> {
+            Tutorial.tutorialStart();
+            miniMain.setVisible(false);
+        });
 
         grid.gridy++;
         JButton button3 = new JButton("Play");
         button3.setMaximumSize(new Dimension(100, 50));
         buttonsPanel.add(button3, grid);
-        button3.addActionListener(e -> GameCustomization.mainMenu());
+        button3.addActionListener(e -> {
+            GameCustomization.mainMenu();
+            miniMain.setVisible(false);
+        });
 
         miniMain.getContentPane().setBackground(Color.DARK_GRAY);
         miniMain.add(buttonsPanel, BorderLayout.CENTER);
