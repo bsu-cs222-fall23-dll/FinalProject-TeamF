@@ -60,7 +60,7 @@ public class Game {
         } else {
             JOptionPane.showMessageDialog(null, "Congrats! you did it! \n It took " + counter + " Clicks and " + seconds + " Seconds!");
         }
-        System.exit(0);
+        MiniMain.miniMain();
     }
 
     private static void layoutGenerator(String startLink, String endLink, Dimension screenSize, AtomicBoolean hasBackButton, long timerStart, boolean isHardMode) {

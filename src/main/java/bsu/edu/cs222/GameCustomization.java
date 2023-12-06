@@ -73,6 +73,7 @@ public class GameCustomization {
             long timerStart = System.currentTimeMillis();
 
             Game.gameStart(startLink, endLink, hasBackButton, timerStart, screenSize, isHardMode.get());
+            mainMenu.dispose();
         });
 
         initialize.addActionListener(e -> {
@@ -88,6 +89,7 @@ public class GameCustomization {
                 long timerStart = System.currentTimeMillis();
 
                 Game.gameStart(link, end, hasBackButton, timerStart, screenSize, isHardMode.get());
+                mainMenu.dispose();
             }
         });
 
@@ -108,6 +110,7 @@ public class GameCustomization {
                 String link = "/wiki/" + start;
                 long timerStart = System.currentTimeMillis();
                 long timeLimit = Game.setTimeLimit(timerStart);
+                mainMenu.dispose();
                 Game.checkTimer(link,end,hasBackButton,timerStart,screenSize,isHardMode.get(), timeLimit);
             }
         });

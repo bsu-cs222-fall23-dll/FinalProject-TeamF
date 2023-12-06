@@ -4,5 +4,4 @@ public class ScoreboardDisplay {
     static void displayScoreboard(){
 
     }
-
 }
