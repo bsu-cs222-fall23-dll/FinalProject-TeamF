@@ -23,22 +23,38 @@ public class MiniMain {
         grid.gridy = 0;
         grid.insets = new Insets(10, 0, 10, 0);
 
+        optionsButton(buttonsPanel, grid);
+        tutorialButton(buttonsPanel, grid, miniMain);
+        playButton(buttonsPanel, grid, miniMain);
+        scoreBoardButton(buttonsPanel, grid, miniMain);
+
+        miniMain.getContentPane().setBackground(Color.DARK_GRAY);
+        miniMain.add(buttonsPanel, BorderLayout.CENTER);
+        miniMain.setLocationRelativeTo(null);
+        miniMain.setVisible(true);
+    }
+
+    public static void optionsButton(JPanel buttonsPanel, GridBagConstraints grid){
         JButton button1 = new JButton("Options");
         button1.setMaximumSize(new Dimension(100, 50));
-        buttonsPanel.add(button1, grid);
         button1.addActionListener(e -> {
 
         });
+        buttonsPanel.add(button1, grid);
+    }
 
+    public static void tutorialButton(JPanel buttonsPanel, GridBagConstraints grid, JFrame miniMain){
         grid.gridy++;
-        JButton button2 = new JButton("Help");
+        JButton button2 = new JButton("Tutorial");
         button2.setMaximumSize(new Dimension(200, 30));
         buttonsPanel.add(button2, grid);
         button2.addActionListener(e -> {
             Tutorial.tutorialStart();
             miniMain.setVisible(false);
         });
+    }
 
+    public static void playButton(JPanel buttonsPanel, GridBagConstraints grid, JFrame miniMain){
         grid.gridy++;
         JButton button3 = new JButton("Play");
         button3.setMaximumSize(new Dimension(100, 50));
@@ -47,19 +63,16 @@ public class MiniMain {
             GameCustomization.mainMenu();
             miniMain.setVisible(false);
         });
+    }
 
+    public static void scoreBoardButton(JPanel buttonsPanel, GridBagConstraints grid, JFrame miniMain){
         grid.gridy++;
         JButton button4 = new JButton("Score Board");
         button4.setMaximumSize(new Dimension(100, 50));
         buttonsPanel.add(button4, grid);
         button4.addActionListener(e -> {
-            ScorboardDisplay.displayScoreboard();
+            ScoreboardDisplay.displayScoreboard();
             miniMain.setVisible(false);
         });
-
-        miniMain.getContentPane().setBackground(Color.DARK_GRAY);
-        miniMain.add(buttonsPanel, BorderLayout.CENTER);
-        miniMain.setLocationRelativeTo(null);
-        miniMain.setVisible(true);
     }
 }

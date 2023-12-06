@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Completed random mode and fixed minor variable names">
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/GameCustomization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/GameCustomization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/MiniMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/MiniMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/ScorboardDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/ScoreboardDisplay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
