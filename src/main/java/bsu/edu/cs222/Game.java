@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Game {
+    static String Starting;
     static String lastLink;
     static long timerEnd;
     static long totalTime;
@@ -37,6 +38,15 @@ public class Game {
         }else{
             layoutGenerator(link, end, screenSize, hasBackButton, timerStart, isHardMode);
         }
+        Starting = link.replace("/wiki/", "");
+    }
+
+    public static void gameContinuation(String link, String end, AtomicBoolean hasBackButton, long timerStart, Dimension screenSize, boolean isHardMode) {
+        if (endCheck(link, end, timerStart, hasBackButton, isHardMode)){
+            MiniMain.miniMain();
+        }else{
+            layoutGenerator(link, end, screenSize, hasBackButton, timerStart, isHardMode);
+        }
     }
 
 
@@ -46,7 +56,7 @@ public class Game {
             totalTime = timerEnd - timerStart;
             double seconds = totalTime / 1000.0;
             gameEnd(hasBackButton, seconds, isHardMode);
-            Scoreboard.scoreKeeper(new User(link, end, counter, (int) seconds));
+            Scoreboard.scoreKeeper(new User(Starting, end, counter, (int) seconds));
             return true;
         }
         return isHardMode;
@@ -113,7 +123,7 @@ public class Game {
                     long timeLimit = setTimeLimit(timerStart);
                     checkTimer(nextLink, endLink, hasBackButton, timerStart, screenSize, true, timeLimit);
                 } else {
-                    gameStart(nextLink, endLink, hasBackButton, timerStart, screenSize, false);
+                    gameContinuation(nextLink, endLink, hasBackButton, timerStart, screenSize, false);
                 }
                 frame.dispose();
             });
@@ -139,7 +149,7 @@ public class Game {
 
             backButton.addActionListener(e -> {
                 backButtonCounter++;
-                gameStart(lastLink, end, hasBackButton, timerStart, screenSize, isHardMode);
+                gameContinuation(lastLink, end, hasBackButton, timerStart, screenSize, isHardMode);
                 frame.dispose();
             });
             buttonPanel.add(backButton);
