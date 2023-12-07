@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Separated the buttons into separate methods in the game customization class">
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Fixed errors in code">
+      <change afterPath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/GameCustomizationButtonsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/bsu/edu/cs222/MiniMainButtonTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +65,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HyperLinkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameCustomizationButtonsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
       <extension name="coverage">
         <pattern>
@@ -73,7 +74,22 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.HyperLinkTest" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.GameCustomizationButtonsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MiniMainButtonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Final_Project_Finley_Brennan_Hunter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bsu.edu.cs222.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.MiniMainButtonTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -94,7 +110,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScoreboardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="bsu.edu.cs222 in Final_Project_Finley_Brennan_Hunter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
       <extension name="coverage">
         <pattern>
@@ -103,24 +119,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScoreboardTest.scoreKeeperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Final_Project_Finley_Brennan_Hunter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bsu.edu.cs222.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardTest" />
-      <option name="METHOD_NAME" value="scoreKeeperTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -128,10 +127,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.bsu.edu.cs222 in Final_Project_Finley_Brennan_Hunter" />
+        <item itemvalue="JUnit.GameCustomizationButtonsTest" />
+        <item itemvalue="JUnit.MiniMainButtonTest" />
         <item itemvalue="JUnit.ScoreboardComparatorTest" />
-        <item itemvalue="JUnit.ScoreboardTest" />
-        <item itemvalue="JUnit.HyperLinkTest" />
-        <item itemvalue="JUnit.ScoreboardTest.scoreKeeperTest" />
       </list>
     </recent_temporary>
   </component>
@@ -352,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701974728726</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Fixed errors in code">
+      <created>1701978111018</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1701978111018</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -367,7 +373,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove duplicate Junit dependency" />
     <MESSAGE value="Remove duplicate Junit dependencies" />
     <MESSAGE value="Implement scroll functionality." />
     <MESSAGE value="Adjust scroll functionality to be independent of screen size" />
@@ -392,7 +397,8 @@
     <MESSAGE value="added scoreboard" />
     <MESSAGE value="Altered minor spelling mistakes and cleaned up code" />
     <MESSAGE value="Separated the buttons into separate methods in the game customization class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Separated the buttons into separate methods in the game customization class" />
+    <MESSAGE value="Fixed errors in code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed errors in code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FinalProject_TeamF$Main.ic" NAME="Main Coverage Results" MODIFIED="1699921672084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
