@@ -35,20 +35,20 @@ public class MiniMain {
     }
 
     public static void optionsButton(JPanel buttonsPanel, GridBagConstraints grid){
-        JButton button1 = new JButton("Options");
-        button1.setMaximumSize(new Dimension(100, 50));
-        button1.addActionListener(e -> {
+        JButton optionsButton = new JButton("Options");
+        optionsButton.setMaximumSize(new Dimension(100, 50));
+        optionsButton.addActionListener(e -> {
 
         });
-        buttonsPanel.add(button1, grid);
+        buttonsPanel.add(optionsButton, grid);
     }
 
     public static void tutorialButton(JPanel buttonsPanel, GridBagConstraints grid, JFrame miniMain){
         grid.gridy++;
-        JButton button2 = new JButton("Tutorial");
-        button2.setMaximumSize(new Dimension(200, 30));
-        buttonsPanel.add(button2, grid);
-        button2.addActionListener(e -> {
+        JButton tutorialButton = new JButton("Tutorial");
+        tutorialButton.setMaximumSize(new Dimension(200, 30));
+        buttonsPanel.add(tutorialButton, grid);
+        tutorialButton.addActionListener(e -> {
             Tutorial.tutorialStart();
             miniMain.setVisible(false);
         });
@@ -56,10 +56,10 @@ public class MiniMain {
 
     public static void playButton(JPanel buttonsPanel, GridBagConstraints grid, JFrame miniMain){
         grid.gridy++;
-        JButton button3 = new JButton("Play");
-        button3.setMaximumSize(new Dimension(100, 50));
-        buttonsPanel.add(button3, grid);
-        button3.addActionListener(e -> {
+        JButton playButton = new JButton("Play");
+        playButton.setMaximumSize(new Dimension(100, 50));
+        buttonsPanel.add(playButton, grid);
+        playButton.addActionListener(e -> {
             GameCustomization.mainMenu();
             miniMain.setVisible(false);
         });
@@ -67,10 +67,10 @@ public class MiniMain {
 
     public static void scoreBoardButton(JPanel buttonsPanel, GridBagConstraints grid, JFrame miniMain){
         grid.gridy++;
-        JButton button4 = new JButton("Score Board");
-        button4.setMaximumSize(new Dimension(100, 50));
-        buttonsPanel.add(button4, grid);
-        button4.addActionListener(e -> {
+        JButton scoreBoardButton = new JButton("Score Board");
+        scoreBoardButton.setMaximumSize(new Dimension(100, 50));
+        buttonsPanel.add(scoreBoardButton, grid);
+        scoreBoardButton.addActionListener(e -> {
             ScoreboardDisplay.displayScoreboard();
             miniMain.setVisible(false);
         });

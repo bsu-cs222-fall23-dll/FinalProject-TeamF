@@ -18,7 +18,7 @@ public class ScoreboardDisplay {
 
         scoreBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         scoreBoard.setSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width/2, Toolkit.getDefaultToolkit().getScreenSize().height/2 ));
-
+        scoreBoard.setLocationRelativeTo(null);
         JPanel buttonsPanel = new JPanel(new GridBagLayout());
 
         GridBagConstraints grid = new GridBagConstraints();
