@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Final_Project_Finley_Brennan_Hunter:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Final_Project_Finley_Brennan_Hunter_jar</output-path>
+    <root id="archive" name="Final_Project_Finley_Brennan_Hunter.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Final_Project_Finley_Brennan_Hunter" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.16.1/jsoup-1.16.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
