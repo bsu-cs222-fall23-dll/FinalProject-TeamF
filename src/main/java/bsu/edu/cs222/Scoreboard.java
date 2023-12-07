@@ -1,7 +1,6 @@
 package bsu.edu.cs222;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Scoreboard {
@@ -9,7 +8,7 @@ public class Scoreboard {
 
     public static String scoreKeeper(User user){
         scoreBoard.add(user);
-        Collections.sort(scoreBoard, new ScoreBoardComparator());
+        scoreBoard.sort(new ScoreBoardComparator());
         return scoreBoard.toString();
     }
 
