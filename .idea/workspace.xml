@@ -54,7 +54,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.bsu.edu.cs222 in Final_Project_Finley_Brennan_Hunter">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.Main" />
       <module name="Final_Project_Finley_Brennan_Hunter" />
@@ -127,9 +127,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.bsu.edu.cs222 in Final_Project_Finley_Brennan_Hunter" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.SFX" />
-        <item itemvalue="JUnit.bsu.edu.cs222 in Final_Project_Finley_Brennan_Hunter" />
         <item itemvalue="JUnit.GameCustomizationButtonsTest" />
         <item itemvalue="JUnit.MiniMainButtonTest" />
       </list>
