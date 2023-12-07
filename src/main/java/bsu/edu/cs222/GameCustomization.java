@@ -12,118 +12,36 @@ public class GameCustomization {
         AtomicBoolean isHardMode = new AtomicBoolean(false);
 
         JFrame mainMenu = new JFrame();
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        mainMenu.setPreferredSize(screenSize);
-        mainMenu.setMinimumSize(new Dimension(screenSize.width/3, screenSize.height/3));
-        mainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainMenu.setLayout(new BorderLayout());
-
         JPanel mainContents = new JPanel();
-        mainContents.setLayout(new GridLayout(2, 1));
+        JPanel modeButtonPanel = new JPanel();
 
-        JPanel horizontalPanel = new JPanel(new FlowLayout());
-        Button initialize = new Button("Start Game!");
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        mainMenu.setMinimumSize(new Dimension(screenSize.width / 2, screenSize.height / 2));
+        mainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        GridBagConstraints grid = new GridBagConstraints();
+        grid.gridx = 0;
+        grid.gridy = 0;
+        grid.insets = new Insets(10, 10, 10, 10);
+
         TextField beginning = new TextField(20);
-        TextField ending = new TextField(20);
         beginning.setText("Enter your starting link:");
+        mainContents.add(beginning);
+
+        TextField ending = new TextField(20);
         ending.setText("Enter your ending link:");
-        horizontalPanel.add(beginning);
-        horizontalPanel.add(ending);
-        horizontalPanel.add(initialize);
+        mainContents.add(ending);
+
+        startButton(mainMenu, mainContents, grid, beginning, ending, hasBackButton, isHardMode, screenSize);
+        backButton(grid, modeButtonPanel, hasBackButton);
+        hardModeButton(mainMenu, modeButtonPanel, grid, beginning, ending, hasBackButton, isHardMode, screenSize);
+        questionButton(modeButtonPanel, grid);
+        randomButton(mainMenu, modeButtonPanel, grid, hasBackButton, isHardMode, screenSize);
 
 
-        JPanel verticalPanel = new JPanel();
-        verticalPanel.setLayout(new BoxLayout(verticalPanel, BoxLayout.Y_AXIS));
-        Button setBackButton = new Button("Back button?");
-        Button hardMode = new Button("Hard mode!");
-        Button hardModeInfo = new Button("?");
-        Button randomMode = new Button("Random pages");
-
-        Dimension buttonSize = new Dimension(300, 30);
-        Dimension question = new Dimension(20, 30);
-        setBackButton.setMaximumSize(buttonSize);
-        hardMode.setMaximumSize(buttonSize);
-        hardModeInfo.setMaximumSize(question);
-        randomMode.setMaximumSize(buttonSize);
-
-        JPanel hardModePanel = new JPanel();
-        hardModePanel.add(hardMode);
-        hardModePanel.add(hardModeInfo);
-        hardModePanel.add(randomMode);
-
-        verticalPanel.add(Box.createVerticalStrut(10));
-        verticalPanel.add(setBackButton);
-        verticalPanel.add(hardModePanel);
-
-
-        hardModeInfo.addActionListener(e ->
-                JOptionPane.showMessageDialog(null, "Hard mode rules: \n No back button \n 4:30 timer"));
-
-        randomMode.addActionListener(e -> {
-            String start = "Special:Random";
-            String end = "Special:Random";
-            String startLink = "https://en.wikipedia.org/wiki/" + start;
-            String endLink = "https://en.wikipedia.org/wiki/" + end;
-            HyperLinkParser hyperLinkParser = new HyperLinkParser();
-            startLink = hyperLinkParser.findFinalRedirect(startLink);
-            endLink = hyperLinkParser.findFinalRedirect(endLink);
-            startLink =  startLink.replace("https://en.wikipedia.org","");
-            endLink =  endLink.replace("https://en.wikipedia.org","");
-
-            long timerStart = System.currentTimeMillis();
-
-            Game.gameStart(startLink, endLink, hasBackButton, timerStart, screenSize, isHardMode.get());
-            mainMenu.dispose();
-        });
-
-        initialize.addActionListener(e -> {
-            String start = beginning.getText();
-            String end = ending.getText();
-
-            if (start.equals("Enter your starting link:") || end.equals("Enter your ending link:")){
-                JOptionPane.showMessageDialog(null, "No input, restarting!");
-                mainMenu.dispose();
-                mainMenu();
-            }else {
-                String link = "/wiki/" + start;
-                long timerStart = System.currentTimeMillis();
-
-                Game.gameStart(link, end, hasBackButton, timerStart, screenSize, isHardMode.get());
-                mainMenu.dispose();
-            }
-        });
-
-        setBackButton.addActionListener(e -> {
-            hasBackButton.set(true);
-            setBackButton.setLabel("Back button enabled.");
-        });
-
-        hardMode.addActionListener(e -> {
-
-            String start = beginning.getText();
-            String end = ending.getText();
-            if (start.equals("Enter your starting link:") || end.equals("Enter your ending link:")){
-                JOptionPane.showMessageDialog(null, "No input, restarting!");
-                mainMenu.dispose();
-                mainMenu();
-            }else {
-                String link = "/wiki/" + start;
-                long timerStart = System.currentTimeMillis();
-                long timeLimit = Game.setTimeLimit(timerStart);
-                mainMenu.dispose();
-                Game.checkTimer(link,end,hasBackButton,timerStart,screenSize,isHardMode.get(), timeLimit);
-            }
-        });
-
-
-
-        mainContents.add(horizontalPanel);
-        mainContents.add(verticalPanel);
-
-
-
-        mainMenu.add(mainContents);
-        mainMenu.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        mainMenu.add(mainContents, BorderLayout.NORTH);
+        mainMenu.add(modeButtonPanel, BorderLayout.CENTER);
+        mainMenu.setLocationRelativeTo(null);
         mainMenu.setVisible(true);
 
         beginning.addFocusListener(new FocusListener() {
@@ -136,7 +54,7 @@ public class GameCustomization {
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (beginning.getText().isEmpty()){
+                if (beginning.getText().isEmpty()) {
                     beginning.setText("Enter your starting link:");
                 }
             }
@@ -152,12 +70,97 @@ public class GameCustomization {
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (ending.getText().isEmpty()){
+                if (ending.getText().isEmpty()) {
                     ending.setText("Enter your ending link:");
                 }
             }
         });
 
+    }
+
+    public static void startButton(JFrame mainMenu, JPanel mainContents, GridBagConstraints grid, TextField beginning, TextField ending, AtomicBoolean hasBackButton, AtomicBoolean isHardMode, Dimension screenSize) {
+        grid.gridy++;
+        Button initialize = new Button("Start Game!");
+        initialize.setMaximumSize(new Dimension(200, 30));
+        mainContents.add(initialize, grid);
+        initialize.addActionListener(e -> {
+            String startingLink = beginning.getText();
+            String endingLink = ending.getText();
+            if (startingLink.equals("Enter your starting link:") || endingLink.equals("Enter your ending link:")) {
+                JOptionPane.showMessageDialog(null, "No input, restarting!");
+                mainMenu.dispose();
+                mainMenu();
+            } else {
+                String link = "/wiki/" + startingLink;
+                long timerStart = System.currentTimeMillis();
+
+                Game.gameStart(link, endingLink, hasBackButton, timerStart, screenSize, isHardMode.get());
+                mainMenu.dispose();
+            }
+        });
+    }
+
+    public static void backButton(GridBagConstraints grid, JPanel modeButtonPanel, AtomicBoolean hasBackButton) {
+        grid.gridy++;
+        JButton backButton = new JButton("Back Button?");
+        backButton.setMaximumSize(new Dimension(200, 30));
+        modeButtonPanel.add(backButton, grid);
+        backButton.addActionListener(e -> {
+            hasBackButton.set(true);
+            backButton.setLabel("Back button enabled.");
+        });
+    }
+
+    public static void hardModeButton(JFrame mainMenu, JPanel modeButtonPanel, GridBagConstraints grid, TextField beginning, TextField ending, AtomicBoolean hasBackButton, AtomicBoolean isHardMode, Dimension screenSize) {
+        grid.gridy++;
+        JButton hardModeButton = new JButton("Hard Mode");
+        hardModeButton.setMaximumSize(new Dimension(200, 30));
+        modeButtonPanel.add(hardModeButton, grid);
+        hardModeButton.addActionListener(e -> {
+            String startingLink = beginning.getText();
+            String endingLink = ending.getText();
+            if (startingLink.equals("Enter your starting link:") || endingLink.equals("Enter your ending link:")) {
+                JOptionPane.showMessageDialog(null, "No input, restarting!");
+                mainMenu.dispose();
+                mainMenu();
+            } else {
+                String link = "/wiki/" + startingLink;
+                long timerStart = System.currentTimeMillis();
+                long timeLimit = Game.setTimeLimit(timerStart);
+                mainMenu.dispose();
+                Game.checkTimer(link, endingLink, hasBackButton, timerStart, screenSize, isHardMode.get(), timeLimit);
+            }
+        });
+    }
+
+    public static void questionButton(JPanel modeButtonPanel, GridBagConstraints grid){
+        grid.gridy++;
+        JButton backButton = new JButton("?");
+        modeButtonPanel.add(backButton, grid);
+        backButton.addActionListener(e -> JOptionPane.showMessageDialog(null, "Hard mode rules: \n No back button \n 4:30 timer"));
+    }
+
+    public static void randomButton(JFrame mainMenu, JPanel modeButtonPanel, GridBagConstraints grid, AtomicBoolean hasBackButton, AtomicBoolean isHardMode, Dimension screenSize) {
+        grid.gridy++;
+        JButton randomButton = new JButton("Random");
+        randomButton.setMaximumSize(new Dimension(200, 30));
+        modeButtonPanel.add(randomButton, grid);
+        randomButton.addActionListener(e -> {
+            String start = "Special:Random";
+            String end = "Special:Random";
+            String startLink = "https://en.wikipedia.org/wiki/" + start;
+            String endLink = "https://en.wikipedia.org/wiki/" + end;
+            HyperLinkParser hyperLinkParser = new HyperLinkParser();
+            startLink = hyperLinkParser.findFinalRedirect(startLink);
+            endLink = hyperLinkParser.findFinalRedirect(endLink);
+            startLink = startLink.replace("https://en.wikipedia.org", "");
+            endLink = endLink.replace("https://en.wikipedia.org", "");
+
+            long timerStart = System.currentTimeMillis();
+
+            Game.gameStart(startLink, endLink, hasBackButton, timerStart, screenSize, isHardMode.get());
+            mainMenu.dispose();
+        });
     }
 }
 

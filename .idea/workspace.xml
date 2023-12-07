@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="fixed  bugs and started on the scoreboard">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Final_Project_Finley_Brennan_Hunter_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loseAudio.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/SFX.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timerSound.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/winGame.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_4_2023_3_44_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_4_2023_3_44_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_4_2023_9_15_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_4_2023_9_15_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_6_2023_10_34_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_6_2023_10_34_AM__Changes_.xml" afterDir="false" />
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Worked on adding missing components">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/MiniMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/MiniMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,25 +41,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Hunter/OneDrive/Desktop/Etc/School/Sem 3/CS 222/FinalProject-TeamF"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Hunter\OneDrive\Desktop\Etc\School\Sem 3\CS 222\FinalProject-TeamF" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Hunter\OneDrive\Desktop\Etc\School\Sem 3\CS 222\FinalProject-TeamF" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.SFX">
+}</component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.Main" />
       <module name="Final_Project_Finley_Brennan_Hunter" />
@@ -81,20 +64,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.SFX" />
-      <module name="Final_Project_Finley_Brennan_Hunter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bsu.edu.cs222.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HyperLinkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameCustomizationButtonsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
       <extension name="coverage">
         <pattern>
@@ -103,7 +73,22 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.HyperLinkTest" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.GameCustomizationButtonsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MiniMainButtonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Final_Project_Finley_Brennan_Hunter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bsu.edu.cs222.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
+      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.MiniMainButtonTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -124,7 +109,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScoreboardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="bsu.edu.cs222 in Final_Project_Finley_Brennan_Hunter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Final_Project_Finley_Brennan_Hunter" />
       <extension name="coverage">
         <pattern>
@@ -133,19 +118,18 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="bsu.edu.cs222" />
-      <option name="MAIN_CLASS_NAME" value="bsu.edu.cs222.ScoreboardTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SFX" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.bsu.edu.cs222 in Final_Project_Finley_Brennan_Hunter" />
+        <item itemvalue="JUnit.GameCustomizationButtonsTest" />
+        <item itemvalue="JUnit.MiniMainButtonTest" />
         <item itemvalue="JUnit.ScoreboardComparatorTest" />
-        <item itemvalue="JUnit.ScoreboardTest" />
-        <item itemvalue="JUnit.HyperLinkTest" />
       </list>
     </recent_temporary>
   </component>
@@ -345,7 +329,42 @@
       <option name="project" value="LOCAL" />
       <updated>1701912336061</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="added scoreboard">
+      <created>1701914991836</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1701914991836</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Altered minor spelling mistakes and cleaned up code">
+      <created>1701967262679</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1701967262679</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Separated the buttons into separate methods in the game customization class">
+      <created>1701974728726</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1701974728726</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Fixed errors in code">
+      <created>1701978111018</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1701978111018</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Worked on adding missing components">
+      <created>1701980882166</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1701980882166</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -360,11 +379,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cudsijn" />
-    <MESSAGE value="Commit 1 Added Jsoup and converted to Maven" />
-    <MESSAGE value="Commit 1 Added Jsoup and converted to Maven, added semi-working HyperLinkParser and included running test" />
-    <MESSAGE value="Remove duplicate Junit dependency" />
-    <MESSAGE value="Remove duplicate Junit dependencies" />
     <MESSAGE value="Implement scroll functionality." />
     <MESSAGE value="Adjust scroll functionality to be independent of screen size" />
     <MESSAGE value="Add back button functionality" />
@@ -385,7 +399,12 @@
     <MESSAGE value="Cleaned up minimain" />
     <MESSAGE value="fixed main menu not closing when starting game on anything but hard" />
     <MESSAGE value="fixed  bugs and started on the scoreboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed  bugs and started on the scoreboard" />
+    <MESSAGE value="added scoreboard" />
+    <MESSAGE value="Altered minor spelling mistakes and cleaned up code" />
+    <MESSAGE value="Separated the buttons into separate methods in the game customization class" />
+    <MESSAGE value="Fixed errors in code" />
+    <MESSAGE value="Worked on adding missing components" />
+    <option name="LAST_COMMIT_MESSAGE" value="Worked on adding missing components" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FinalProject_TeamF$Main.ic" NAME="Main Coverage Results" MODIFIED="1699921672084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
