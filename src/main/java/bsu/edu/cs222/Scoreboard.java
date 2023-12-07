@@ -5,11 +5,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class Scoreboard {
-    List<User> scoreBoard = new ArrayList<>();
+    static List<User> scoreBoard = new ArrayList<>();
 
-    public String scoreKeeper(User user){
+    public static String scoreKeeper(User user){
         scoreBoard.add(user);
         Collections.sort(scoreBoard, new ScoreBoardComparator());
+        return scoreBoard.toString();
+    }
+
+    public static String scoreCollection(){
         return scoreBoard.toString();
     }
 }

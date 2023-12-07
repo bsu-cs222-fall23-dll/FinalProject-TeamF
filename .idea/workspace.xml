@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="Cleaned up minimain">
+    <list default="true" id="33ee95eb-0e09-4c7f-9781-195264da447c" name="Changes" comment="fixed main menu not closing when starting game on anything but hard">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/GameCustomization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/GameCustomization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Scoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/Scoreboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/ScoreboardDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/edu/cs222/ScoreboardDisplay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,10 +130,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.HyperLinkTest" />
-        <item itemvalue="JUnit.ScoreboardTest" />
-        <item itemvalue="JUnit.ScoreboardTest.scoreKeeperTest" />
         <item itemvalue="JUnit.ScoreboardComparatorTest" />
+        <item itemvalue="JUnit.ScoreboardTest" />
+        <item itemvalue="JUnit.HyperLinkTest" />
+        <item itemvalue="JUnit.ScoreboardTest.scoreKeeperTest" />
       </list>
     </recent_temporary>
   </component>
@@ -319,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701905102677</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fixed main menu not closing when starting game on anything but hard">
+      <created>1701907040078</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1701907040078</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,7 +364,8 @@
     <MESSAGE value="Finished the base of scoreboard" />
     <MESSAGE value="Completed random mode and fixed minor variable names" />
     <MESSAGE value="Cleaned up minimain" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up minimain" />
+    <MESSAGE value="fixed main menu not closing when starting game on anything but hard" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed main menu not closing when starting game on anything but hard" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FinalProject_TeamF$Main.ic" NAME="Main Coverage Results" MODIFIED="1699921672084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

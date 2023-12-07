@@ -32,18 +32,24 @@ public class Game {
     }
 
     public static void gameStart(String link, String end, AtomicBoolean hasBackButton, long timerStart, Dimension screenSize, boolean isHardMode) {
-        endCheck(link, end, timerStart, hasBackButton, isHardMode);
-        layoutGenerator(link, end, screenSize, hasBackButton, timerStart, isHardMode);
+        if (endCheck(link, end, timerStart, hasBackButton, isHardMode)){
+            MiniMain.miniMain();
+        }else{
+            layoutGenerator(link, end, screenSize, hasBackButton, timerStart, isHardMode);
+        }
     }
 
 
-    private static void endCheck(String link, String end, long timerStart, AtomicBoolean hasBackButton, boolean isHardMode) {
+    private static boolean endCheck(String link, String end, long timerStart, AtomicBoolean hasBackButton, boolean isHardMode) {
         if (stringFormat(link).contains(stringFormat(end))) {
             timerEnd = System.currentTimeMillis();
             totalTime = timerEnd - timerStart;
             double seconds = totalTime / 1000.0;
             gameEnd(hasBackButton, seconds, isHardMode);
+            Scoreboard.scoreKeeper(new User(link, end, counter, (int) seconds));
+            return true;
         }
+        return isHardMode;
     }
 
     private static String stringFormat(String string){
@@ -60,7 +66,6 @@ public class Game {
         } else {
             JOptionPane.showMessageDialog(null, "Congrats! you did it! \n It took " + counter + " Clicks and " + seconds + " Seconds!");
         }
-        MiniMain.miniMain();
     }
 
     private static void layoutGenerator(String startLink, String endLink, Dimension screenSize, AtomicBoolean hasBackButton, long timerStart, boolean isHardMode) {
