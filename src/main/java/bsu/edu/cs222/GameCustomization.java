@@ -107,6 +107,7 @@ public class GameCustomization {
         modeButtonPanel.add(backButton, grid);
         backButton.addActionListener(e -> {
             hasBackButton.set(true);
+            //noinspection deprecation
             backButton.setLabel("Back button enabled.");
         });
     }
