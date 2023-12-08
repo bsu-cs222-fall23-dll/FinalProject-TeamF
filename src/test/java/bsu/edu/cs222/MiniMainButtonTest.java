@@ -8,18 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MiniMainButtonTest extends MiniMain{
-    @Test
-    public void optionsButtonTest(){
-        JPanel testPanel = new JPanel();
-        GridBagConstraints testGrid = new GridBagConstraints();
-        MiniMain.optionsButton(testPanel, testGrid);
-        assertEquals(1, testPanel.getComponentCount());
-        Component component = testPanel.getComponent(0);
-        assertTrue(component instanceof JButton);
-        JButton button = (JButton) component;
-        assertEquals("Options", button.getText());
-        assertEquals(new Dimension(100, 50), button.getMaximumSize());
-    }
 
     @Test
     public void tutorialButtonTest(){

@@ -24,7 +24,6 @@ public class MiniMain {
         grid.insets = new Insets(10, 0, 10, 0);
 
         playButton(buttonsPanel, grid, miniMain);
-        optionsButton(buttonsPanel, grid);
         tutorialButton(buttonsPanel, grid, miniMain);
         scoreBoardButton(buttonsPanel, grid, miniMain);
 
@@ -34,15 +33,6 @@ public class MiniMain {
         miniMain.setVisible(true);
     }
 
-    public static void optionsButton(JPanel buttonsPanel, GridBagConstraints grid){
-        grid.gridy++;
-        JButton optionsButton = new JButton("Options");
-        optionsButton.setMaximumSize(new Dimension(100, 50));
-        optionsButton.addActionListener(e -> {
-
-        });
-        buttonsPanel.add(optionsButton, grid);
-    }
 
     public static void tutorialButton(JPanel buttonsPanel, GridBagConstraints grid, JFrame miniMain){
         grid.gridy++;
